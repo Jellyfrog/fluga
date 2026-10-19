@@ -1,5 +1,5 @@
 // End-to-end run of the app: wake, add dishes, taste, verdict. Screenshots into OUT.
-// Usage: node tools/e2e.mjs <outDir> [image ...]   (dev server on PORT, default 5173)
+// Usage: node tools/e2e.mjs <outDir> [image ...]   (dev server on PORT, default 5173; or URL=https://...)
 import { chromium, devices } from 'playwright';
 import { mkdirSync } from 'node:fs';
 
@@ -18,7 +18,7 @@ page.on('pageerror', (e) => console.log('[pageerror]', e.message));
 const t0 = Date.now();
 const shot = (name) => page.screenshot({ path: `${out}/${name}.png`, fullPage: true });
 
-await page.goto(`http://localhost:${port}/`);
+await page.goto(process.env.URL ?? `http://localhost:${port}/`);
 await shot('1-wake');
 await page.click('#wake-btn');
 await page.waitForSelector('#wake-ready:not([hidden])', { timeout: 300_000 });
