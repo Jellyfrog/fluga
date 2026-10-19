@@ -36,13 +36,6 @@
         </div>
         <div id="wake-ready" hidden>
           <p class="ready-line" id="wake-note">The fly is awake.</p>
-          <fieldset class="mood">
-            <legend>How hungry is it?</legend>
-            <label><input type="radio" name="mood" value="full"><span>Full</span></label>
-            <label><input type="radio" name="mood" value="peckish" checked><span>Peckish</span></label>
-            <label><input type="radio" name="mood" value="starving"><span>Starving</span></label>
-          </fieldset>
-          <p class="fine">Hunger scales how strongly sugar neurons fire (×0.6, ×1, ×1.4).</p>
           <button class="primary big" data-go="dishes">Add dishes →</button>
         </div>
         <p class="error" id="wake-error" hidden></p>
@@ -63,6 +56,15 @@
           <input type="file" id="file-upload" accept="image/*" multiple>Upload photos
         </label>
         <span class="fine" id="classifier-status"></span>
+      </div>
+      <div class="card mood-card">
+        <fieldset class="mood">
+          <legend>How hungry is the fly?</legend>
+          <label><input type="radio" name="mood" value="full"><span>Full</span></label>
+          <label><input type="radio" name="mood" value="peckish" checked><span>Peckish</span></label>
+          <label><input type="radio" name="mood" value="starving"><span>Starving</span></label>
+        </fieldset>
+        <p class="fine">Hunger scales how strongly sugar neurons fire (×0.6, ×1, ×1.4). Change it any time and taste again.</p>
       </div>
       <div class="dishes" id="dishes"></div>
       <div class="sticky-cta">

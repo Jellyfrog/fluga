@@ -26,9 +26,9 @@ const badge = (await page.textContent('#brain-badge')).trim();
 console.log('awake after', Date.now() - t0, 'ms; badge:', badge);
 const want = process.env.NO_GPU ? 'recorded brain' : 'live brain';
 if (badge !== want) { console.error(`FAIL: badge "${badge}", expected "${want}"`); process.exit(1); }
-await page.click('input[value=starving] + span');
 await shot('2-ready');
 await page.click('#wake-ready [data-go=dishes]');
+await page.click('input[value=starving] + span');
 await page.setInputFiles('#file-upload', imgs);
 await page.waitForFunction(() => !document.querySelector('#taste-btn').disabled, null, { timeout: 300_000 });
 await page.waitForTimeout(500);
