@@ -116,14 +116,15 @@
     <h2>What is real here</h2>
     <p><strong>The wiring is real.</strong> The brain is the FlyWire connectome (v783): 138,639 neurons of an adult female <em>Drosophila</em> and 15,091,983 connections, each weighted by its synapse count, excitatory or inhibitory.</p>
     <p><strong>The model is published.</strong> Neurons follow the leaky integrate-and-fire model of Shiu et al. (<em>Nature</em>, 2024), with their parameters, run here on your GPU with WebGPU in 0.1 ms steps. Every verdict is computed live; nothing is scripted.</p>
-    <p><strong>The split of work.</strong> A food recognizer turns each photo into a taste profile (sweet, bitter, salty, watery) from a hand-written table. The fly only ever receives taste: sugar, bitter, water and Ir94e (salt) taste neurons fire at up to 150 Hz. It "eats" when MN9, the proboscis motor neuron, fires 4 spikes within 50 ms. Preferences like bitterness vetoing sugar come from the connectome.</p>
+    <p><strong>The split of work.</strong> A food recognizer matches each photo against about 1,400 dishes; each dish's taste profile (sweet, bitter, salty, watery) is computed from USDA nutrient data: sugars, sodium, water, caffeine and theobromine per 100 g, plus the share of bitter ingredients such as arugula or grapefruit. The fly only ever receives taste: sugar, bitter, water and Ir94e (salt) taste neurons fire at up to 150 Hz. It "eats" when MN9, the proboscis motor neuron, fires 4 spikes within 50 ms. Preferences like bitterness vetoing sugar come from the connectome.</p>
     <p><strong>What is not modeled:</strong> smell, learning, neuromodulation, hunger hormones, the body. The fly-eye view is decoration and never affects the pick. This is a joke app with a real core, not a fly's mind.</p>
     <h3>Credits</h3>
     <ul class="credits">
       <li><a href="https://flywire.ai" target="_blank" rel="noopener">FlyWire</a> connectome: Dorkenwald et al. and Schlegel et al., <em>Nature</em> 2024.</li>
       <li><a href="https://github.com/philshiu/Drosophila_brain_model" target="_blank" rel="noopener">Drosophila_brain_model</a> (MIT license): Shiu et al., "A Drosophila computational brain model reveals sensorimotor processing", <em>Nature</em> 2024.</li>
       <li>Eat rule and v783 neuron IDs cross-checked with <a href="https://github.com/ediskandarov/flight-or-bite" target="_blank" rel="noopener">flight-or-bite</a>.</li>
-      <li>Dish recognizer: MobileNetV2 fine-tuned on Food-101 (weights from <a href="https://huggingface.co/AlexKoff88/mobilenet_v2_food101" target="_blank" rel="noopener">AlexKoff88/mobilenet_v2_food101</a>, re-exported and int8-quantized), run on-device with ONNX Runtime Web.</li>
+      <li>Dish recognizer: <a href="https://huggingface.co/wkcn/TinyCLIP-ViT-39M-16-Text-19M-YFCC15M" target="_blank" rel="noopener">TinyCLIP ViT-39M/16</a> (Wu et al., ICCV 2023; MIT license), zero-shot against the dish list, 4-bit weights, run on-device with ONNX Runtime Web.</li>
+      <li>Taste data: <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noopener">USDA FoodData Central</a>, Food and Nutrient Database for Dietary Studies (FNDDS 2021–2023), public domain.</li>
     </ul>
     <p class="fine" id="about-tech"></p>
   </dialog>

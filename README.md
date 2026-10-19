@@ -18,7 +18,7 @@ integrate-and-fire model of Shiu et al. (2024).
 | `prep/fallback_table.py` | precomputed "recorded brain" grid for browsers without WebGPU → `recorded.json` |
 | `prep/compare.py` | Phase 5 pass/fail of WebGPU results against `reference.json` |
 | `web/src/sim/` | WebGPU simulator (`shaders.ts`, `gpu-sim.ts`), brain loader, worker, service with fallbacks |
-| `web/src/taste/` | on-device Food-101 classifier, `tastes.json`, taste → rates and the decision rule |
+| `web/src/taste/` | on-device zero-shot dish recognizer (TinyCLIP), the dish table and search, taste → rates and the decision rule |
 | `web/src/flyeye/` | fly-eye view (WebGL2 fragment shader) |
 | `web/src/ui/`, `web/src/main.ts` | the four screens, spike raster, share card |
 | `web/validate.html`, `web/tools/validate.mjs` | headless validation page and its Playwright runner |
@@ -33,6 +33,36 @@ uv venv .venv && uv pip install -p .venv numpy pandas pyarrow numba
 .venv/bin/python prep/refsim.py             # reference.json
 .venv/bin/python prep/fallback_table.py     # recorded.json (~5 min on 14 cores)
 ```
+
+## Dishes and tastes
+
+`prep/dishes/*.json` lists about 1,400 dishes (all 101 Food-101 classes plus world cuisines, sweets,
+produce, snacks and drinks). Each dish is one USDA FNDDS food or a short recipe of FNDDS foods with
+gram weights. `prep/usda_tastes.py` turns nutrients per 100 g into the four channels with saturating
+curves: sugars → sweet, sodium → salty, caffeine + theobromine + bitter-ingredient share → bitter,
+water above 55 g → watery. Photos are matched zero-shot by TinyCLIP ViT-39M/16 (MIT) against text
+embeddings of each dish's name, aliases and a short visual description, and a recognized dish's taste is
+the score-weighted blend of the top 5 guesses.
+
+```sh
+curl -sSLO https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_survey_food_csv_2024-10-31.zip   # into data/usda, unzip
+.venv/bin/python prep/usda_tastes.py && .venv/bin/python prep/dishes.py check
+# separate venv with torch, transformers, onnx, onnxruntime:
+python prep/classifier/export_clip.py wkcn/TinyCLIP-ViT-39M-16-Text-19M-YFCC15M <dir>   # + 4-bit variants
+python prep/classifier/embed_dishes.py <dir>
+python prep/classifier/eval_vocab.py <dir> <dir>/vision_q4_b32a.onnx food101val:<imgs> mmfood:data/eval/mmfood
+python prep/classifier/build_web.py <dir> <dir>/vision_q4_b32a.onnx                     # -> web/public/models/dishes
+```
+
+Measured (`eval_vocab.py`, mean absolute taste error over the 4 channels, lower is better):
+
+| Photos | New: TinyCLIP over 1,372 dishes | Old: MobileNetV2 over Food-101's 101 |
+| --- | --- | --- |
+| 400 phone photos from MM-Food-100K, 210 dishes | 0.076 (top-1 dish 48%, top-5 72%) | 0.197 |
+| … of which the 79 Food-101 dishes | 0.067 | 0.080 |
+| 800 Food-101 validation photos | 0.058 (top-1 56%, top-5 79%) | 0.033 (the old model was trained on this set) |
+
+The 4-bit image model (27 MB) costs about 2 points of top-1 against 8-bit (42 MB) or full precision.
 
 ## Run
 

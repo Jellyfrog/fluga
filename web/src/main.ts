@@ -4,7 +4,7 @@ import { FlyEye, flyEyeSupported, FLY_EYE_LEGEND } from './flyeye/flyeye';
 import { startBrain, isRecorded, type BrainService } from './sim/service';
 import { ateIt, DT_MS } from './sim/model';
 import { classify, loadClassifier, type Guess } from './taste/classifier';
-import { tasteFor, prettyName, type Taste } from './taste/tastes';
+import { blendTaste, nutrientLine, searchDishes, sourceLine, type DishInfo, type Taste } from './taste/dishes';
 import {
   MIN_ATE, TRIALS, TRIAL_MS, oneLiner, rank, tasteToRates, type DishOutcome, type Mood,
 } from './taste/encoder';
@@ -12,7 +12,9 @@ import { Raster } from './ui/raster';
 import { renderShareCard, shareOrDownload } from './ui/share';
 
 const MAX_DISHES = 8;
-const LOW_CONFIDENCE = 0.4;
+// Softmax over ~1,400 dishes: below 0.25 the top guess is right about half the time, so ask
+// (flags ~20% of photos; prep/classifier/eval_vocab.py).
+const LOW_CONFIDENCE = 0.25;
 const PHOTO_MAX = 768;
 const N_NEURONS = 138_639;
 
@@ -21,7 +23,8 @@ interface Dish {
   photo: HTMLCanvasElement; // downscaled source, reused by classifier, fly eye and share card
   thumb: string; // data URL for lists
   guesses: Guess[] | null;
-  label: string | null;
+  label: string | null; // dish id
+  name?: string;
   skipped: boolean;
   taste: Taste;
   notes: string;
@@ -169,7 +172,7 @@ async function recognize(dish: Dish) {
   try {
     const { top } = await classify(dish.photo);
     dish.guesses = top;
-    if (top[0].score >= LOW_CONFIDENCE) chooseLabel(dish, top[0].label);
+    if (top[0].score >= LOW_CONFIDENCE) chooseDish(dish, top[0].dish, top);
   } catch (err) {
     console.warn('classify failed', err);
     dish.guesses = [];
@@ -178,15 +181,46 @@ async function recognize(dish: Dish) {
   updateDishesUi();
 }
 
-function chooseLabel(dish: Dish, label: string) {
-  dish.label = label;
+/**
+ * Picks the dish. When the recognizer chose it, the taste blends the top guesses by score, so a
+ * near-miss (prime rib vs. steak) changes little; a dish the user picked or typed counts alone.
+ */
+function chooseDish(dish: Dish, info: DishInfo, guesses?: Guess[]) {
+  dish.label = info.id;
+  dish.name = info.name;
   dish.skipped = false;
-  const t = tasteFor(label);
-  dish.taste = { sweet: t.sweet, bitter: t.bitter, salty: t.salty, watery: t.watery };
-  dish.notes = t.notes;
+  const lines = [sourceLine(info), nutrientLine(info)];
+  if (guesses && guesses.length > 1) {
+    dish.taste = blendTaste(guesses.map((g) => ({ taste: g.dish.taste, weight: g.score })));
+    const total = guesses.reduce((s, g) => s + g.score, 0);
+    const shown = guesses.map((g) => ({ g, pct: Math.round((100 * g.score) / total) })).filter((x) => x.pct >= 1);
+    lines.push(`Taste blended from the top guesses: ${shown.map(({ g, pct }) => `${g.name} ${pct}%`).join(', ')}.`);
+  } else {
+    dish.taste = { ...info.taste };
+  }
+  dish.notes = lines.join('\n');
 }
 
-function dishName(d: Dish) { return d.label ? prettyName(d.label) : 'Mystery dish'; }
+function dishName(d: Dish) { return d.name ?? 'Mystery dish'; }
+
+/** "Not it? Type the dish": search the vocabulary by name or alias and pick a match. */
+function dishSearch(dish: Dish): HTMLElement {
+  const input = h('input', { type: 'search', placeholder: 'Not it? Type the dish…', ariaLabel: 'Type the dish name', className: 'search' });
+  const results = h('div', { class: 'guesses' });
+  let seq = 0;
+  input.addEventListener('input', async () => {
+    const mine = ++seq;
+    const found = await searchDishes(input.value, 6);
+    if (mine !== seq) return;
+    results.replaceChildren(...found.map((d) => {
+      const b = h('button', { class: 'chip' }, d.name);
+      b.addEventListener('click', () => { chooseDish(dish, d); renderDish(dish); updateDishesUi(); });
+      return b;
+    }));
+    if (input.value.trim() && !found.length) results.append(h('span', { class: 'fine' }, 'No dish by that name; pick the closest or set the bars by hand.'));
+  });
+  return h('div', { class: 'dish-search' }, input, results);
+}
 
 function renderDish(dish: Dish) {
   const el = dish.el;
@@ -217,7 +251,7 @@ function renderDish(dish: Dish) {
       const chips = h('div', { class: 'guesses' });
       for (const g of dish.guesses.slice(0, 3)) {
         const b = h('button', { class: `chip${g.label === dish.label ? ' on' : ''}` }, `${g.name} · ${Math.round(g.score * 100)}%`);
-        b.addEventListener('click', () => { chooseLabel(dish, g.label); renderDish(dish); updateDishesUi(); });
+        b.addEventListener('click', () => { chooseDish(dish, g.dish); renderDish(dish); updateDishesUi(); });
         chips.append(b);
       }
       if (!dish.skipped) {
@@ -227,6 +261,7 @@ function renderDish(dish: Dish) {
       }
       body.append(chips);
     }
+    if (!dish.skipped) body.append(dishSearch(dish));
     if (!dish.skipped && (dish.label || !dish.guesses.length)) {
       const bars = h('div', { class: 'tastes' });
       for (const [key, lbl] of [['sweet', 'Sweet'], ['bitter', 'Bitter'], ['salty', 'Salty'], ['watery', 'Watery']] as const) {
@@ -236,7 +271,7 @@ function renderDish(dish: Dish) {
         bars.append(h('label', { class: 'taste' }, lbl, input, v));
       }
       body.append(bars);
-      if (dish.notes) body.append(h('p', { class: 'notes' }, dish.notes));
+      if (dish.notes) body.append(h('div', { class: 'notes' }, ...dish.notes.split('\n').map((l) => h('p', {}, l))));
     }
   }
   el.append(body);

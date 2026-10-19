@@ -1,0 +1,4453 @@
+[
+ {
+  "id": "mapo_tofu",
+  "name": "Mapo tofu",
+  "desc": "soft tofu cubes in glossy red chili oil sauce with minced pork",
+  "aliases": [
+   "mabo tofu",
+   "mapo doufu"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707435,
+    200
+   ],
+   [
+    2705863,
+    50
+   ],
+   [
+    2707404,
+    15
+   ],
+   [
+    2710093,
+    10
+   ],
+   [
+    2707132,
+    60
+   ]
+  ]
+ },
+ {
+  "id": "kung_pao_chicken",
+  "name": "Kung pao chicken",
+  "desc": "diced chicken stir-fried with peanuts, dried red chilies and scallions",
+  "aliases": [
+   "gong bao chicken",
+   "kung po chicken"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706796,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "general_tsos_chicken",
+  "name": "General Tso's chicken",
+  "desc": "deep-fried chicken chunks in sticky dark red sauce with dried chilies",
+  "aliases": [
+   "general tso chicken",
+   "general tao chicken",
+   "general tsao chicken"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706794,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "orange_chicken",
+  "name": "Orange chicken",
+  "desc": "crispy battered chicken pieces in shiny orange glaze with sesame seeds",
+  "aliases": [],
+  "food101": null,
+  "fndds": [
+   [
+    2706443,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "sweet_and_sour_pork",
+  "name": "Sweet and sour pork",
+  "desc": "fried pork pieces in bright red sauce with pineapple and peppers",
+  "aliases": [
+   "gu lao rou",
+   "tangsuyuk",
+   "sweet & sour pork"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706401,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "beef_and_broccoli",
+  "name": "Beef and broccoli",
+  "desc": "sliced beef and broccoli florets in glossy brown sauce",
+  "aliases": [
+   "beef with broccoli"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706751,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "mongolian_beef",
+  "name": "Mongolian beef",
+  "desc": "caramelized sliced beef with long scallion pieces in sweet soy glaze",
+  "aliases": [],
+  "food101": null,
+  "fndds": [
+   [
+    2705822,
+    120
+   ],
+   [
+    2709953,
+    40
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2710258,
+    12
+   ],
+   [
+    2707441,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "chow_mein",
+  "name": "Chow mein",
+  "desc": "stir-fried thin noodles with cabbage, bean sprouts and meat",
+  "aliases": [
+   "chao mian",
+   "chow mein noodles"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706722,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "lo_mein",
+  "name": "Lo mein",
+  "desc": "soft thick egg noodles tossed in brown sauce with vegetables",
+  "aliases": [],
+  "food101": null,
+  "fndds": [
+   [
+    2708798,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "beef_chow_fun",
+  "name": "Beef chow fun",
+  "desc": "wide flat rice noodles stir-fried dark with beef and bean sprouts",
+  "aliases": [
+   "beef ho fun",
+   "gon chow ngau ho",
+   "chow fun"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708796,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "dan_dan_noodles",
+  "name": "Dan dan noodles",
+  "desc": "noodles in spicy red chili oil sauce with minced pork and peanuts",
+  "aliases": [
+   "dandan mian",
+   "dan dan mian"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708352,
+    200
+   ],
+   [
+    2705863,
+    40
+   ],
+   [
+    2710093,
+    10
+   ],
+   [
+    2707442,
+    10
+   ],
+   [
+    2707537,
+    15
+   ],
+   [
+    2710258,
+    3
+   ]
+  ]
+ },
+ {
+  "id": "beef_noodle_soup",
+  "name": "Beef noodle soup",
+  "desc": "bowl of dark beef broth, wheat noodles, braised beef chunks, greens",
+  "aliases": [
+   "niu rou mian",
+   "taiwanese beef noodle soup",
+   "lanzhou beef noodles",
+   "lanzhou lamian"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708352,
+    200
+   ],
+   [
+    2705849,
+    80
+   ],
+   [
+    2710115,
+    400
+   ],
+   [
+    2707442,
+    10
+   ],
+   [
+    2709887,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "wonton_soup",
+  "name": "Wonton soup",
+  "desc": "clear broth with floating silky wontons and green onion",
+  "aliases": [
+   "wantan soup",
+   "wonton noodle soup"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709160,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "wontons_in_chili_oil",
+  "name": "Wontons in chili oil",
+  "desc": "boiled pork wontons drenched in red chili oil with scallions",
+  "aliases": [
+   "hong you chao shou",
+   "spicy wontons",
+   "red oil wontons"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708708,
+    150
+   ],
+   [
+    2710093,
+    10
+   ],
+   [
+    2707442,
+    8
+   ],
+   [
+    2709351,
+    5
+   ],
+   [
+    2710258,
+    3
+   ],
+   [
+    2710190,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "egg_drop_soup",
+  "name": "Egg drop soup",
+  "desc": "yellow broth with silky ribbons of egg and scallions",
+  "aliases": [
+   "egg flower soup"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707282,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "hot_pot",
+  "name": "Hot pot",
+  "desc": "bubbling pot of red spicy broth with sliced meat and vegetables",
+  "aliases": [
+   "huoguo",
+   "chinese hot pot",
+   "chongqing hot pot",
+   "sichuan hot pot",
+   "mongolian hot pot"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707132,
+    300
+   ],
+   [
+    2705822,
+    60
+   ],
+   [
+    2707435,
+    50
+   ],
+   [
+    2709887,
+    50
+   ],
+   [
+    2709937,
+    30
+   ],
+   [
+    2710093,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "xiaolongbao",
+  "name": "Xiaolongbao",
+  "desc": "pleated soup dumplings in a bamboo steamer basket",
+  "aliases": [
+   "soup dumplings",
+   "xiao long bao",
+   "xlb"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708708,
+    80
+   ],
+   [
+    2707132,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "siu_mai",
+  "name": "Siu mai",
+  "desc": "open-topped yellow dumplings filled with pork and shrimp, orange dot",
+  "aliases": [
+   "shumai",
+   "siomai",
+   "shao mai",
+   "siew mai"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708708,
+    80
+   ],
+   [
+    2705863,
+    20
+   ],
+   [
+    2706363,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "har_gow",
+  "name": "Har gow",
+  "desc": "translucent pleated shrimp dumplings in a bamboo steamer",
+  "aliases": [
+   "ha gow",
+   "crystal shrimp dumplings",
+   "xia jiao"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706363,
+    60
+   ],
+   [
+    2708344,
+    40
+   ]
+  ]
+ },
+ {
+  "id": "char_siu_bao",
+  "name": "Char siu bao",
+  "desc": "fluffy white steamed buns split open showing red barbecue pork",
+  "aliases": [
+   "cha siu bao",
+   "baozi",
+   "bao",
+   "steamed pork buns",
+   "pork buns"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708724,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "cheung_fun",
+  "name": "Cheung fun",
+  "desc": "glossy rolled rice noodle sheets drizzled with sweet soy sauce",
+  "aliases": [
+   "rice noodle rolls",
+   "chee cheong fun",
+   "chang fen"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708356,
+    150
+   ],
+   [
+    2706363,
+    40
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2710258,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "lo_mai_gai",
+  "name": "Lo mai gai",
+  "desc": "sticky rice parcel in a steamed lotus leaf, opened to show filling",
+  "aliases": [
+   "sticky rice in lotus leaf",
+   "nuo mi ji",
+   "lotus leaf rice"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708422,
+    150
+   ],
+   [
+    2706037,
+    40
+   ],
+   [
+    2706190,
+    15
+   ],
+   [
+    2709943,
+    15
+   ],
+   [
+    2707442,
+    10
+   ],
+   [
+    2707150,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "zongzi",
+  "name": "Zongzi",
+  "desc": "pyramid-shaped sticky rice dumplings wrapped in bamboo leaves and string",
+  "aliases": [
+   "zong zi",
+   "bakcang",
+   "joong",
+   "sticky rice dumpling"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708422,
+    150
+   ],
+   [
+    2705901,
+    30
+   ],
+   [
+    2707389,
+    20
+   ],
+   [
+    2707442,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "egg_tart",
+  "name": "Egg tart",
+  "desc": "small round flaky tarts with glossy yellow custard filling",
+  "aliases": [
+   "dan tat",
+   "daan tat",
+   "hong kong egg tart"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708007,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "turnip_cake",
+  "name": "Turnip cake",
+  "desc": "pan-fried golden rectangles of radish cake",
+  "aliases": [
+   "lo bak go",
+   "radish cake",
+   "luo bo gao"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709803,
+    100
+   ],
+   [
+    2710788,
+    60
+   ],
+   [
+    2706190,
+    15
+   ],
+   [
+    2706366,
+    5
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "chicken_feet",
+  "name": "Chicken feet",
+  "desc": "reddish-brown braised chicken feet in black bean sauce",
+  "aliases": [
+   "phoenix claws",
+   "fung zao",
+   "feng zhao"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706061,
+    80
+   ],
+   [
+    2707404,
+    15
+   ],
+   [
+    2710258,
+    3
+   ],
+   [
+    2710093,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "pai_gwat",
+  "name": "Steamed spare ribs",
+  "desc": "small steamed pork rib pieces with black beans in a dish",
+  "aliases": [
+   "pai gwat",
+   "black bean spare ribs",
+   "dim sum ribs"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705862,
+    100
+   ],
+   [
+    2707404,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "sesame_balls",
+  "name": "Sesame balls",
+  "desc": "golden fried balls covered in white sesame seeds",
+  "aliases": [
+   "jian dui",
+   "jin deui",
+   "sesame seed balls",
+   "ma tuan"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708050,
+    70
+   ],
+   [
+    2710309,
+    30
+   ],
+   [
+    2707586,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "congee",
+  "name": "Congee",
+  "desc": "smooth white rice porridge in a bowl with scallions and toppings",
+  "aliases": [
+   "jook",
+   "juk",
+   "rice porridge",
+   "zhou",
+   "century egg congee"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708981,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "youtiao",
+  "name": "Youtiao",
+  "desc": "long golden twin sticks of fried dough",
+  "aliases": [
+   "chinese fried dough",
+   "you tiao",
+   "chinese cruller",
+   "yau ja gwai"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708024,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "jianbing",
+  "name": "Jianbing",
+  "desc": "folded savory crepe with egg, scallions, crispy cracker and sauce",
+  "aliases": [
+   "jian bing",
+   "chinese crepe"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708342,
+    80
+   ],
+   [
+    2707158,
+    50
+   ],
+   [
+    2708024,
+    15
+   ],
+   [
+    2707441,
+    10
+   ],
+   [
+    2709794,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "scallion_pancake",
+  "name": "Scallion pancake",
+  "desc": "flaky round golden flatbread cut in wedges, flecked with green onion",
+  "aliases": [
+   "cong you bing",
+   "green onion pancake",
+   "scallion pancakes"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708343,
+    100
+   ],
+   [
+    2709794,
+    20
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "char_siu",
+  "name": "Char siu",
+  "desc": "glossy red-edged slices of barbecued pork",
+  "aliases": [
+   "cha siu",
+   "chinese bbq pork",
+   "char siew"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705882,
+    100
+   ],
+   [
+    2707441,
+    15
+   ],
+   [
+    2710281,
+    10
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "siu_yuk",
+  "name": "Siu yuk",
+  "desc": "roast pork belly cubes with crackling golden skin",
+  "aliases": [
+   "crispy pork belly",
+   "siew yuk",
+   "cantonese roast pork"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705901,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "steamed_fish",
+  "name": "Steamed whole fish",
+  "desc": "whole steamed fish with soy sauce, scallion and ginger shreds",
+  "aliases": [
+   "cantonese steamed fish",
+   "qing zheng yu"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706299,
+    150
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2709794,
+    10
+   ],
+   [
+    2710258,
+    3
+   ]
+  ]
+ },
+ {
+  "id": "honey_walnut_shrimp",
+  "name": "Honey walnut shrimp",
+  "desc": "fried shrimp in creamy white sauce with candied walnuts",
+  "aliases": [],
+  "food101": null,
+  "fndds": [
+   [
+    2706364,
+    100
+   ],
+   [
+    2710204,
+    20
+   ],
+   [
+    2705402,
+    10
+   ],
+   [
+    2707532,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "twice_cooked_pork",
+  "name": "Twice cooked pork",
+  "desc": "sliced pork belly stir-fried with peppers and cabbage in chili bean sauce",
+  "aliases": [
+   "hui guo rou",
+   "huiguorou"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705901,
+    100
+   ],
+   [
+    2709976,
+    40
+   ],
+   [
+    2709889,
+    30
+   ],
+   [
+    2707404,
+    10
+   ],
+   [
+    2710093,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "red_braised_pork_belly",
+  "name": "Red braised pork belly",
+  "desc": "glossy dark red cubes of braised pork belly",
+  "aliases": [
+   "hong shao rou",
+   "dongpo pork",
+   "braised pork belly"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705901,
+    120
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2710258,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "yu_xiang_eggplant",
+  "name": "Yu xiang eggplant",
+  "desc": "soft purple eggplant strips in glossy red garlic sauce",
+  "aliases": [
+   "fish fragrant eggplant",
+   "yuxiang qiezi",
+   "garlic eggplant",
+   "szechuan eggplant"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709930,
+    150
+   ],
+   [
+    2705863,
+    20
+   ],
+   [
+    2707404,
+    10
+   ],
+   [
+    2710258,
+    5
+   ],
+   [
+    2709351,
+    5
+   ],
+   [
+    2710093,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "dry_fried_green_beans",
+  "name": "Dry-fried green beans",
+  "desc": "blistered wrinkled green beans stir-fried with minced pork and chilies",
+  "aliases": [
+   "gan bian si ji dou",
+   "szechuan green beans",
+   "sichuan green beans"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2710041,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "gai_lan",
+  "name": "Gai lan with oyster sauce",
+  "desc": "glossy green Chinese broccoli stalks drizzled with oyster sauce",
+  "aliases": [
+   "chinese broccoli",
+   "kai lan",
+   "jie lan"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709658,
+    150
+   ],
+   [
+    2707150,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "garlic_bok_choy",
+  "name": "Garlic bok choy",
+  "desc": "glossy bok choy halves with pale spoon-shaped stems and garlic",
+  "aliases": [
+   "bok choy",
+   "pak choi",
+   "stir-fried bok choy"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709888,
+    150
+   ],
+   [
+    2709932,
+    5
+   ],
+   [
+    2707150,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "tomato_egg_stir_fry",
+  "name": "Tomato and egg stir-fry",
+  "desc": "scrambled eggs with juicy red tomato wedges",
+  "aliases": [
+   "fan qie chao dan",
+   "xi hong shi chao ji dan",
+   "tomato egg"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707158,
+    100
+   ],
+   [
+    2709721,
+    120
+   ],
+   [
+    2710258,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "smashed_cucumber_salad",
+  "name": "Smashed cucumber salad",
+  "desc": "chunks of smashed cucumber in garlic, vinegar and chili oil",
+  "aliases": [
+   "pai huang gua",
+   "chinese cucumber salad"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709784,
+    150
+   ],
+   [
+    2709351,
+    10
+   ],
+   [
+    2707442,
+    8
+   ],
+   [
+    2709932,
+    3
+   ],
+   [
+    2710190,
+    3
+   ],
+   [
+    2710258,
+    3
+   ]
+  ]
+ },
+ {
+  "id": "egg_foo_young",
+  "name": "Egg foo young",
+  "desc": "fluffy golden omelette patties covered in brown gravy",
+  "aliases": [
+   "egg foo yung",
+   "fu yung hai",
+   "egg fu yung"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707193,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "moo_shu_pork",
+  "name": "Moo shu pork",
+  "desc": "shredded pork, egg and cabbage stir-fry with thin pancakes and hoisin",
+  "aliases": [
+   "mu shu pork",
+   "moo shoo pork"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706764,
+    150
+   ],
+   [
+    2708343,
+    40
+   ],
+   [
+    2707441,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "crab_rangoon",
+  "name": "Crab rangoon",
+  "desc": "crispy fried wonton triangles with cream cheese filling",
+  "aliases": [
+   "crab puffs",
+   "cheese wontons",
+   "crab wontons"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708707,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "fortune_cookie",
+  "name": "Fortune cookie",
+  "desc": "folded crisp golden cookies with a paper fortune inside",
+  "aliases": [],
+  "food101": null,
+  "fndds": [
+   [
+    2707930,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "mooncake",
+  "name": "Mooncake",
+  "desc": "round golden pastry with embossed top, cut to show salted yolk",
+  "aliases": [
+   "moon cake",
+   "yue bing"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708049,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "tangyuan",
+  "name": "Tangyuan",
+  "desc": "white glutinous rice balls floating in sweet syrup soup",
+  "aliases": [
+   "tang yuan",
+   "yuanxiao",
+   "glutinous rice balls"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708345,
+    60
+   ],
+   [
+    2707586,
+    10
+   ],
+   [
+    2710258,
+    15
+   ],
+   [
+    2710507,
+    150
+   ]
+  ]
+ },
+ {
+  "id": "douhua",
+  "name": "Douhua",
+  "desc": "silky soft tofu pudding in a bowl with sweet syrup",
+  "aliases": [
+   "tofu pudding",
+   "dou fu hua",
+   "tau foo fah",
+   "douhua"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707435,
+    150
+   ],
+   [
+    2710258,
+    15
+   ],
+   [
+    2710507,
+    50
+   ]
+  ]
+ },
+ {
+  "id": "lamb_skewers",
+  "name": "Lamb skewers",
+  "desc": "grilled lamb skewers dusted with cumin and chili flakes",
+  "aliases": [
+   "chuanr",
+   "yang rou chuan",
+   "chuan'r",
+   "xinjiang lamb skewers"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705905,
+    100
+   ],
+   [
+    2710093,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "shui_zhu_yu",
+  "name": "Sichuan boiled fish",
+  "desc": "fish slices in a bowl of fiery red chili oil, dried chilies",
+  "aliases": [
+   "shui zhu yu",
+   "water boiled fish",
+   "boiled fish in chili oil"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706228,
+    120
+   ],
+   [
+    2707132,
+    150
+   ],
+   [
+    2710093,
+    15
+   ],
+   [
+    2709871,
+    40
+   ],
+   [
+    2709887,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "tea_egg",
+  "name": "Tea egg",
+  "desc": "hard-boiled eggs with brown marbled crackle pattern",
+  "aliases": [
+   "chinese tea eggs",
+   "marbled eggs",
+   "cha ye dan"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707154,
+    50
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "century_egg",
+  "name": "Century egg",
+  "desc": "dark translucent jelly-like egg halves with greenish-black yolk",
+  "aliases": [
+   "pidan",
+   "thousand-year egg",
+   "preserved egg",
+   "century egg tofu"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707176,
+    50
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "rou_jia_mo",
+  "name": "Rou jia mo",
+  "desc": "round flatbread bun stuffed with chopped braised pork",
+  "aliases": [
+   "chinese hamburger",
+   "roujiamo",
+   "rou jia mou"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707655,
+    80
+   ],
+   [
+    2705882,
+    60
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "claypot_rice",
+  "name": "Claypot rice",
+  "desc": "rice in a clay pot topped with sausage slices and soy sauce",
+  "aliases": [
+   "bo zai fan",
+   "clay pot rice",
+   "bao zai fan"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    200
+   ],
+   [
+    2706190,
+    30
+   ],
+   [
+    2706037,
+    40
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2709887,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "lion_head_meatballs",
+  "name": "Lion's head meatballs",
+  "desc": "large round pork meatballs braised with napa cabbage",
+  "aliases": [
+   "shi zi tou",
+   "lions head"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705863,
+    150
+   ],
+   [
+    2709887,
+    80
+   ],
+   [
+    2707132,
+    80
+   ],
+   [
+    2707442,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "mantou",
+  "name": "Mantou",
+  "desc": "plain smooth white steamed buns",
+  "aliases": [
+   "chinese steamed bun",
+   "man tou",
+   "steamed bun"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707654,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "egg_waffle",
+  "name": "Egg waffle",
+  "desc": "golden waffle sheet covered in egg-shaped bubble puffs",
+  "aliases": [
+   "gai daan jai",
+   "bubble waffle",
+   "hong kong egg waffle",
+   "eggette"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708325,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "tonkatsu",
+  "name": "Tonkatsu",
+  "desc": "breaded deep-fried pork cutlet sliced, with shredded cabbage",
+  "aliases": [
+   "pork katsu",
+   "pork cutlet",
+   "chicken katsu"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705869,
+    120
+   ],
+   [
+    2707447,
+    15
+   ],
+   [
+    2709773,
+    50
+   ]
+  ]
+ },
+ {
+  "id": "japanese_curry",
+  "name": "Japanese curry",
+  "desc": "thick brown curry sauce beside white rice with potato and carrot",
+  "aliases": [
+   "kare raisu",
+   "curry rice",
+   "japanese curry rice"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706389,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "katsu_curry",
+  "name": "Katsu curry",
+  "desc": "breaded pork cutlet slices on rice with thick brown curry",
+  "aliases": [
+   "katsu kare",
+   "chicken katsu curry",
+   "katsukare"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706389,
+    250
+   ],
+   [
+    2705869,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "karaage",
+  "name": "Karaage",
+  "desc": "golden craggy bite-size fried chicken with a lemon wedge",
+  "aliases": [
+   "kara-age",
+   "japanese fried chicken",
+   "tori karaage"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706045,
+    100
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "tempura",
+  "name": "Tempura",
+  "desc": "light crispy battered shrimp and vegetables",
+  "aliases": [
+   "shrimp tempura",
+   "ebi tempura",
+   "vegetable tempura"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706364,
+    60
+   ],
+   [
+    2710065,
+    60
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "tendon",
+  "name": "Tendon",
+  "desc": "rice bowl topped with tempura shrimp and vegetables drizzled with sauce",
+  "aliases": [
+   "tempura don",
+   "tempura rice bowl"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    200
+   ],
+   [
+    2706364,
+    60
+   ],
+   [
+    2710065,
+    50
+   ],
+   [
+    2707442,
+    10
+   ],
+   [
+    2710258,
+    8
+   ]
+  ]
+ },
+ {
+  "id": "udon",
+  "name": "Udon",
+  "desc": "thick white wheat noodles in light dashi broth with scallions",
+  "aliases": [
+   "kake udon",
+   "kitsune udon",
+   "tempura udon",
+   "udon noodle soup",
+   "kalguksu"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708357,
+    200
+   ],
+   [
+    2707132,
+    300
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2709794,
+    5
+   ],
+   [
+    2706550,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "yaki_udon",
+  "name": "Yaki udon",
+  "desc": "thick chewy noodles stir-fried with cabbage, pork and bonito flakes",
+  "aliases": [
+   "stir-fried udon"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708357,
+    200
+   ],
+   [
+    2705862,
+    40
+   ],
+   [
+    2709889,
+    50
+   ],
+   [
+    2707442,
+    10
+   ],
+   [
+    2707447,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "soba",
+  "name": "Soba",
+  "desc": "cold brown buckwheat noodles on a bamboo tray with dipping sauce",
+  "aliases": [
+   "zaru soba",
+   "buckwheat noodles",
+   "mori soba"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708353,
+    180
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2707132,
+    40
+   ],
+   [
+    2709988,
+    1
+   ]
+  ]
+ },
+ {
+  "id": "yakisoba",
+  "name": "Yakisoba",
+  "desc": "stir-fried noodles with cabbage, pork, brown sauce and pickled ginger",
+  "aliases": [
+   "yaki soba"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708352,
+    180
+   ],
+   [
+    2705862,
+    40
+   ],
+   [
+    2709889,
+    60
+   ],
+   [
+    2707447,
+    15
+   ],
+   [
+    2709664,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "okonomiyaki",
+  "name": "Okonomiyaki",
+  "desc": "thick savory pancake with brown sauce, mayo zigzags and bonito flakes",
+  "aliases": [
+   "japanese pancake",
+   "osaka pancake"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709889,
+    100
+   ],
+   [
+    2708304,
+    80
+   ],
+   [
+    2707153,
+    30
+   ],
+   [
+    2705901,
+    30
+   ],
+   [
+    2707447,
+    15
+   ],
+   [
+    2710204,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "yakitori",
+  "name": "Yakitori",
+  "desc": "grilled chicken pieces on bamboo skewers glazed with tare",
+  "aliases": [
+   "chicken skewers",
+   "negima",
+   "japanese chicken skewers"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706041,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "gyudon",
+  "name": "Gyudon",
+  "desc": "rice bowl topped with thin simmered beef and onions",
+  "aliases": [
+   "beef bowl",
+   "gyu don",
+   "beef rice bowl"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    200
+   ],
+   [
+    2705822,
+    80
+   ],
+   [
+    2709950,
+    40
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2710258,
+    8
+   ],
+   [
+    2710691,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "oyakodon",
+  "name": "Oyakodon",
+  "desc": "rice bowl topped with chicken and softly set egg",
+  "aliases": [
+   "oyako don",
+   "chicken and egg bowl"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    200
+   ],
+   [
+    2706037,
+    60
+   ],
+   [
+    2707153,
+    50
+   ],
+   [
+    2709950,
+    30
+   ],
+   [
+    2707442,
+    12
+   ],
+   [
+    2710258,
+    6
+   ],
+   [
+    2707132,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "katsudon",
+  "name": "Katsudon",
+  "desc": "rice bowl with breaded pork cutlet simmered in egg and onion",
+  "aliases": [
+   "katsu don",
+   "pork cutlet bowl"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    200
+   ],
+   [
+    2705869,
+    100
+   ],
+   [
+    2707153,
+    50
+   ],
+   [
+    2709950,
+    30
+   ],
+   [
+    2707442,
+    12
+   ],
+   [
+    2710258,
+    6
+   ],
+   [
+    2707132,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "unadon",
+  "name": "Unadon",
+  "desc": "glossy grilled eel fillets with sweet glaze on rice",
+  "aliases": [
+   "unagi don",
+   "unaju",
+   "eel rice bowl",
+   "unagi"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    200
+   ],
+   [
+    2706247,
+    100
+   ],
+   [
+    2707445,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "chicken_teriyaki",
+  "name": "Chicken teriyaki",
+  "desc": "glossy grilled chicken slices in sweet soy teriyaki glaze",
+  "aliases": [
+   "teriyaki chicken",
+   "teriyaki"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706433,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "onigiri",
+  "name": "Onigiri",
+  "desc": "triangle rice balls wrapped with a strip of nori",
+  "aliases": [
+   "rice ball",
+   "omusubi",
+   "japanese rice ball"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    110
+   ],
+   [
+    2709988,
+    2
+   ],
+   [
+    2706287,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "chirashi",
+  "name": "Chirashi",
+  "desc": "bowl of sushi rice topped with assorted sliced raw fish and roe",
+  "aliases": [
+   "chirashizushi",
+   "kaisendon",
+   "sashimi rice bowl",
+   "chirashi don"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    200
+   ],
+   [
+    2706284,
+    40
+   ],
+   [
+    2706308,
+    40
+   ],
+   [
+    2710258,
+    8
+   ],
+   [
+    2709351,
+    10
+   ],
+   [
+    2707442,
+    8
+   ]
+  ]
+ },
+ {
+  "id": "temaki",
+  "name": "Temaki",
+  "desc": "cone-shaped nori hand roll filled with rice, fish and vegetables",
+  "aliases": [
+   "hand roll",
+   "temaki sushi",
+   "sushi hand roll"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708961,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "inari_sushi",
+  "name": "Inari sushi",
+  "desc": "golden sweet fried tofu pouches stuffed with sushi rice",
+  "aliases": [
+   "inarizushi",
+   "inari"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707448,
+    40
+   ],
+   [
+    2708408,
+    80
+   ],
+   [
+    2710258,
+    10
+   ],
+   [
+    2707442,
+    8
+   ],
+   [
+    2709351,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "chawanmushi",
+  "name": "Chawanmushi",
+  "desc": "smooth savory egg custard in a small lidded cup",
+  "aliases": [
+   "steamed egg custard",
+   "chawan mushi"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707152,
+    60
+   ],
+   [
+    2707132,
+    120
+   ],
+   [
+    2706363,
+    15
+   ],
+   [
+    2709937,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "agedashi_tofu",
+  "name": "Agedashi tofu",
+  "desc": "fried tofu cubes in light brown dashi broth with grated daikon",
+  "aliases": [
+   "agedashi dofu",
+   "agedofu"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707449,
+    150
+   ],
+   [
+    2707132,
+    60
+   ],
+   [
+    2707442,
+    10
+   ],
+   [
+    2709803,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "tamagoyaki",
+  "name": "Tamagoyaki",
+  "desc": "rolled layered yellow omelette cut into rectangular slices",
+  "aliases": [
+   "dashimaki tamago",
+   "japanese rolled omelette",
+   "tamago"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707153,
+    100
+   ],
+   [
+    2710258,
+    6
+   ],
+   [
+    2707442,
+    3
+   ]
+  ]
+ },
+ {
+  "id": "natto",
+  "name": "Natto",
+  "desc": "sticky stringy fermented soybeans over white rice",
+  "aliases": [
+   "natto gohan",
+   "natto rice"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707440,
+    50
+   ],
+   [
+    2708408,
+    150
+   ],
+   [
+    2707442,
+    5
+   ],
+   [
+    2710085,
+    2
+   ]
+  ]
+ },
+ {
+  "id": "hiyayakko",
+  "name": "Hiyayakko",
+  "desc": "chilled block of silken tofu topped with scallions and bonito",
+  "aliases": [
+   "cold tofu",
+   "hiya yakko"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707435,
+    150
+   ],
+   [
+    2707442,
+    8
+   ],
+   [
+    2709794,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "sukiyaki",
+  "name": "Sukiyaki",
+  "desc": "beef slices, tofu and vegetables simmered in sweet soy, iron pot",
+  "aliases": [
+   "sukiyaki nabe"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705822,
+    100
+   ],
+   [
+    2707435,
+    60
+   ],
+   [
+    2709887,
+    50
+   ],
+   [
+    2709950,
+    30
+   ],
+   [
+    2707442,
+    20
+   ],
+   [
+    2710258,
+    12
+   ],
+   [
+    2707132,
+    50
+   ],
+   [
+    2707152,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "shabu_shabu",
+  "name": "Shabu shabu",
+  "desc": "thin raw beef slices beside a pot of clear simmering broth",
+  "aliases": [
+   "shabu-shabu",
+   "japanese hot pot"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705822,
+    80
+   ],
+   [
+    2707132,
+    300
+   ],
+   [
+    2709887,
+    60
+   ],
+   [
+    2707435,
+    40
+   ],
+   [
+    2709937,
+    20
+   ],
+   [
+    2710211,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "oden",
+  "name": "Oden",
+  "desc": "daikon, eggs and fish cakes simmering in light broth",
+  "aliases": [
+   "kanto-ni",
+   "oden hot pot"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706550,
+    60
+   ],
+   [
+    2709803,
+    80
+   ],
+   [
+    2707154,
+    50
+   ],
+   [
+    2707448,
+    30
+   ],
+   [
+    2707132,
+    250
+   ],
+   [
+    2707442,
+    8
+   ]
+  ]
+ },
+ {
+  "id": "nikujaga",
+  "name": "Nikujaga",
+  "desc": "simmered potatoes, beef, onion and carrots in sweet soy",
+  "aliases": [
+   "meat and potato stew",
+   "niku jaga"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709388,
+    150
+   ],
+   [
+    2705822,
+    50
+   ],
+   [
+    2709950,
+    40
+   ],
+   [
+    2709664,
+    30
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2710258,
+    10
+   ],
+   [
+    2707132,
+    50
+   ]
+  ]
+ },
+ {
+  "id": "omurice",
+  "name": "Omurice",
+  "desc": "ketchup rice wrapped in a thin yellow omelette topped with ketchup",
+  "aliases": [
+   "omu rice",
+   "omuraisu",
+   "omelette rice"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709008,
+    150
+   ],
+   [
+    2706037,
+    30
+   ],
+   [
+    2707153,
+    60
+   ],
+   [
+    2709733,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "hambagu",
+  "name": "Hambagu",
+  "desc": "Japanese hamburger steak patty with glossy brown demi-glace sauce",
+  "aliases": [
+   "hamburg steak",
+   "hambaagu",
+   "japanese hamburger steak"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706581,
+    120
+   ],
+   [
+    2707447,
+    15
+   ],
+   [
+    2709733,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "korokke",
+  "name": "Korokke",
+  "desc": "golden breaded oval potato croquettes with brown sauce",
+  "aliases": [
+   "japanese croquette",
+   "croquette",
+   "kroket"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709499,
+    100
+   ],
+   [
+    2705854,
+    15
+   ],
+   [
+    2709950,
+    10
+   ],
+   [
+    2708024,
+    30
+   ],
+   [
+    2707447,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "ebi_fry",
+  "name": "Ebi fry",
+  "desc": "panko-crumbed fried prawns standing straight with tartar sauce",
+  "aliases": [
+   "ebi furai",
+   "fried prawns",
+   "panko shrimp"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706364,
+    100
+   ],
+   [
+    2710204,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "mochi",
+  "name": "Mochi",
+  "desc": "soft round white rice cakes dusted with starch, red bean filling",
+  "aliases": [
+   "daifuku",
+   "mochi daifuku",
+   "ichigo daifuku"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708345,
+    70
+   ],
+   [
+    2710309,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "dango",
+  "name": "Dango",
+  "desc": "three chewy rice dumplings on a skewer, glazed or pastel colored",
+  "aliases": [
+   "mitarashi dango",
+   "hanami dango"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708345,
+    80
+   ],
+   [
+    2707442,
+    5
+   ],
+   [
+    2710258,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "dorayaki",
+  "name": "Dorayaki",
+  "desc": "two small golden pancakes sandwiching sweet red bean paste",
+  "aliases": [
+   "dora yaki"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708304,
+    60
+   ],
+   [
+    2710309,
+    40
+   ],
+   [
+    2710281,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "taiyaki",
+  "name": "Taiyaki",
+  "desc": "fish-shaped golden waffle cake filled with red bean",
+  "aliases": [
+   "bungeoppang",
+   "fish shaped pastry",
+   "boong-uh-bbang"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708325,
+    60
+   ],
+   [
+    2710309,
+    40
+   ]
+  ]
+ },
+ {
+  "id": "castella",
+  "name": "Castella",
+  "desc": "rectangular slice of golden sponge cake with brown top",
+  "aliases": [
+   "kasutera",
+   "castella cake",
+   "taiwanese castella"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707886,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "bento",
+  "name": "Bento",
+  "desc": "compartmented lunch box with rice, meat, egg and vegetables",
+  "aliases": [
+   "bento box",
+   "obento",
+   "makunouchi bento",
+   "dosirak",
+   "lunch box"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    150
+   ],
+   [
+    2706433,
+    60
+   ],
+   [
+    2707153,
+    30
+   ],
+   [
+    2706287,
+    30
+   ],
+   [
+    2709645,
+    20
+   ],
+   [
+    2710099,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "sunomono",
+  "name": "Sunomono",
+  "desc": "thin sliced cucumber and seaweed salad in vinegar dressing",
+  "aliases": [
+   "cucumber sunomono",
+   "namasu",
+   "japanese cucumber salad"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709818,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "kushikatsu",
+  "name": "Kushikatsu",
+  "desc": "deep-fried breaded skewers of meat and vegetables",
+  "aliases": [
+   "kushiage",
+   "kushi katsu"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705869,
+    60
+   ],
+   [
+    2706364,
+    30
+   ],
+   [
+    2707447,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "hiyashi_chuka",
+  "name": "Hiyashi chuka",
+  "desc": "cold noodles topped with colorful strips of egg, cucumber and ham",
+  "aliases": [
+   "cold ramen",
+   "hiyashi chuuka",
+   "reimen"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708352,
+    180
+   ],
+   [
+    2709784,
+    30
+   ],
+   [
+    2707153,
+    20
+   ],
+   [
+    2706206,
+    20
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2709351,
+    10
+   ],
+   [
+    2710258,
+    8
+   ]
+  ]
+ },
+ {
+  "id": "saba_shioyaki",
+  "name": "Saba shioyaki",
+  "desc": "salt-grilled mackerel fillet with charred skin and grated daikon",
+  "aliases": [
+   "grilled mackerel",
+   "saba",
+   "shioyaki"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706265,
+    100
+   ],
+   [
+    2709803,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "ikayaki",
+  "name": "Ikayaki",
+  "desc": "whole grilled squid brushed with soy glaze",
+  "aliases": [
+   "grilled squid",
+   "ika yaki"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706333,
+    120
+   ],
+   [
+    2707442,
+    10
+   ],
+   [
+    2710258,
+    3
+   ]
+  ]
+ },
+ {
+  "id": "kare_pan",
+  "name": "Kare pan",
+  "desc": "golden panko-crusted fried bun filled with curry",
+  "aliases": [
+   "curry bread",
+   "curry bun",
+   "karepan"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708024,
+    60
+   ],
+   [
+    2706388,
+    40
+   ]
+  ]
+ },
+ {
+  "id": "melon_pan",
+  "name": "Melon pan",
+  "desc": "round sweet bun with crisp cookie crust scored in a grid",
+  "aliases": [
+   "melonpan",
+   "melon bread",
+   "pineapple bun",
+   "bo lo bao"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707666,
+    70
+   ],
+   [
+    2707970,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "katsu_sando",
+  "name": "Katsu sando",
+  "desc": "crustless white bread sandwich with thick breaded pork cutlet",
+  "aliases": [
+   "katsu sandwich",
+   "tonkatsu sandwich"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705869,
+    80
+   ],
+   [
+    2707598,
+    60
+   ],
+   [
+    2707447,
+    10
+   ],
+   [
+    2709773,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "tamago_sando",
+  "name": "Tamago sando",
+  "desc": "soft white bread sandwich with creamy egg salad filling",
+  "aliases": [
+   "egg sando",
+   "japanese egg sandwich",
+   "egg salad sandwich"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707154,
+    60
+   ],
+   [
+    2710204,
+    15
+   ],
+   [
+    2707598,
+    60
+   ]
+  ]
+ },
+ {
+  "id": "ochazuke",
+  "name": "Ochazuke",
+  "desc": "rice in a bowl with green tea poured over, salmon and nori",
+  "aliases": [
+   "chazuke",
+   "ochazuke rice"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    150
+   ],
+   [
+    2710490,
+    150
+   ],
+   [
+    2706287,
+    20
+   ],
+   [
+    2709988,
+    1
+   ],
+   [
+    2707442,
+    3
+   ]
+  ]
+ },
+ {
+  "id": "goya_champuru",
+  "name": "Goya champuru",
+  "desc": "stir-fried bitter melon slices with tofu, egg and pork",
+  "aliases": [
+   "goya chanpuru",
+   "bitter melon stir fry",
+   "champuru"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709878,
+    100
+   ],
+   [
+    2707435,
+    60
+   ],
+   [
+    2707153,
+    30
+   ],
+   [
+    2705901,
+    30
+   ],
+   [
+    2707442,
+    8
+   ]
+  ]
+ },
+ {
+  "id": "bulgogi",
+  "name": "Bulgogi",
+  "desc": "thin caramelized marinated beef slices with onions and sesame",
+  "aliases": [
+   "bul go gi",
+   "korean bbq beef",
+   "beef bulgogi"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705822,
+    120
+   ],
+   [
+    2710228,
+    20
+   ],
+   [
+    2710258,
+    6
+   ],
+   [
+    2709950,
+    30
+   ],
+   [
+    2709794,
+    5
+   ],
+   [
+    2707586,
+    2
+   ]
+  ]
+ },
+ {
+  "id": "galbi",
+  "name": "Galbi",
+  "desc": "grilled marinated beef short ribs with charred edges",
+  "aliases": [
+   "kalbi",
+   "la galbi",
+   "korean short ribs",
+   "galbi gui"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705845,
+    150
+   ]
+  ]
+ },
+ {
+  "id": "samgyeopsal",
+  "name": "Samgyeopsal",
+  "desc": "thick strips of pork belly grilling on a tabletop griddle",
+  "aliases": [
+   "korean pork belly",
+   "samgyupsal",
+   "korean bbq",
+   "samgyeopsal gui"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705901,
+    150
+   ],
+   [
+    2709789,
+    30
+   ],
+   [
+    2707439,
+    10
+   ],
+   [
+    2710093,
+    3
+   ],
+   [
+    2709932,
+    5
+   ],
+   [
+    2710077,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "yangnyeom_chicken",
+  "name": "Yangnyeom chicken",
+  "desc": "fried chicken coated in sticky glossy red sweet-spicy sauce",
+  "aliases": [
+   "yangnyeom tongdak",
+   "korean fried chicken",
+   "korean spicy fried chicken",
+   "seasoned fried chicken"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706065,
+    120
+   ],
+   [
+    2710228,
+    15
+   ],
+   [
+    2710093,
+    5
+   ],
+   [
+    2710274,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "tteokbokki",
+  "name": "Tteokbokki",
+  "desc": "chewy cylindrical rice cakes in bright red gochujang sauce",
+  "aliases": [
+   "topokki",
+   "ddeokbokki",
+   "dukbokki",
+   "tteokbokki"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708957,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "kimbap",
+  "name": "Kimbap",
+  "desc": "sliced seaweed rice rolls showing colorful vegetable and egg centers",
+  "aliases": [
+   "gimbap",
+   "korean rice roll"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    150
+   ],
+   [
+    2709988,
+    3
+   ],
+   [
+    2707153,
+    20
+   ],
+   [
+    2709664,
+    15
+   ],
+   [
+    2709615,
+    15
+   ],
+   [
+    2706206,
+    15
+   ],
+   [
+    2710099,
+    15
+   ],
+   [
+    2710190,
+    3
+   ]
+  ]
+ },
+ {
+  "id": "japchae",
+  "name": "Japchae",
+  "desc": "glossy translucent sweet potato noodles stir-fried with vegetables",
+  "aliases": [
+   "chapchae",
+   "jap chae",
+   "glass noodles"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708355,
+    150
+   ],
+   [
+    2705822,
+    30
+   ],
+   [
+    2709615,
+    30
+   ],
+   [
+    2709664,
+    20
+   ],
+   [
+    2709950,
+    20
+   ],
+   [
+    2709937,
+    15
+   ],
+   [
+    2707442,
+    12
+   ],
+   [
+    2710258,
+    6
+   ]
+  ]
+ },
+ {
+  "id": "kimchi",
+  "name": "Kimchi",
+  "desc": "spicy red fermented napa cabbage",
+  "aliases": [
+   "baechu kimchi",
+   "kimchee",
+   "kim chi"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2710077,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "kimchi_jjigae",
+  "name": "Kimchi jjigae",
+  "desc": "bubbling red stew with kimchi, tofu and pork in a stone pot",
+  "aliases": [
+   "kimchi stew",
+   "kimchi chigae",
+   "kimchi jigae"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2710077,
+    100
+   ],
+   [
+    2705901,
+    40
+   ],
+   [
+    2707435,
+    60
+   ],
+   [
+    2707132,
+    200
+   ]
+  ]
+ },
+ {
+  "id": "sundubu_jjigae",
+  "name": "Sundubu jjigae",
+  "desc": "fiery red soft tofu stew with raw egg in stone pot",
+  "aliases": [
+   "soondubu",
+   "soft tofu stew",
+   "sundubu"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707435,
+    200
+   ],
+   [
+    2707132,
+    150
+   ],
+   [
+    2706342,
+    20
+   ],
+   [
+    2707152,
+    30
+   ],
+   [
+    2710093,
+    10
+   ],
+   [
+    2707442,
+    8
+   ]
+  ]
+ },
+ {
+  "id": "doenjang_jjigae",
+  "name": "Doenjang jjigae",
+  "desc": "brown soybean paste stew with tofu, zucchini and vegetables",
+  "aliases": [
+   "doenjang chigae",
+   "soybean paste stew",
+   "doenjang stew"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707132,
+    200
+   ],
+   [
+    2707439,
+    25
+   ],
+   [
+    2707435,
+    60
+   ],
+   [
+    2709388,
+    30
+   ],
+   [
+    2709950,
+    20
+   ],
+   [
+    2709937,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "budae_jjigae",
+  "name": "Budae jjigae",
+  "desc": "spicy stew pot with spam, sausages, instant noodles and cheese",
+  "aliases": [
+   "army stew",
+   "army base stew",
+   "budae jigae"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706211,
+    40
+   ],
+   [
+    2706166,
+    30
+   ],
+   [
+    2708352,
+    60
+   ],
+   [
+    2710077,
+    50
+   ],
+   [
+    2707435,
+    30
+   ],
+   [
+    2707132,
+    200
+   ],
+   [
+    2710093,
+    5
+   ],
+   [
+    2705764,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "samgyetang",
+  "name": "Samgyetang",
+  "desc": "whole small chicken stuffed with rice in milky broth",
+  "aliases": [
+   "ginseng chicken soup",
+   "samgyetang"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705939,
+    200
+   ],
+   [
+    2708422,
+    40
+   ],
+   [
+    2707132,
+    200
+   ],
+   [
+    2709932,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "seolleongtang",
+  "name": "Seolleongtang",
+  "desc": "milky white ox bone soup with sliced beef and scallions",
+  "aliases": [
+   "ox bone soup",
+   "seollongtang",
+   "gomtang"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2710115,
+    300
+   ],
+   [
+    2705851,
+    50
+   ],
+   [
+    2708352,
+    40
+   ],
+   [
+    2709794,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "gamjatang",
+  "name": "Gamjatang",
+  "desc": "spicy red pork bone soup with potatoes",
+  "aliases": [
+   "pork bone soup",
+   "gamja tang",
+   "pork backbone stew"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705897,
+    100
+   ],
+   [
+    2709388,
+    80
+   ],
+   [
+    2707132,
+    250
+   ],
+   [
+    2710093,
+    10
+   ],
+   [
+    2709887,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "yukgaejang",
+  "name": "Yukgaejang",
+  "desc": "fiery red shredded beef soup with scallions and bean sprouts",
+  "aliases": [
+   "spicy beef soup",
+   "yukgaejang"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2710115,
+    300
+   ],
+   [
+    2705851,
+    50
+   ],
+   [
+    2710093,
+    10
+   ],
+   [
+    2709871,
+    30
+   ],
+   [
+    2709953,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "naengmyeon",
+  "name": "Naengmyeon",
+  "desc": "cold buckwheat noodles in icy broth topped with egg and cucumber",
+  "aliases": [
+   "mul naengmyeon",
+   "korean cold noodles",
+   "naengmyun"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708353,
+    150
+   ],
+   [
+    2710115,
+    250
+   ],
+   [
+    2709351,
+    10
+   ],
+   [
+    2709784,
+    20
+   ],
+   [
+    2709803,
+    20
+   ],
+   [
+    2707154,
+    25
+   ],
+   [
+    2705851,
+    20
+   ],
+   [
+    2710258,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "jajangmyeon",
+  "name": "Jajangmyeon",
+  "desc": "noodles covered with thick glossy black bean sauce",
+  "aliases": [
+   "jjajangmyeon",
+   "zhajiangmian",
+   "black bean noodles",
+   "jajangmyun"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708352,
+    200
+   ],
+   [
+    2707404,
+    40
+   ],
+   [
+    2705862,
+    30
+   ],
+   [
+    2709950,
+    50
+   ]
+  ]
+ },
+ {
+  "id": "jjamppong",
+  "name": "Jjamppong",
+  "desc": "spicy red seafood noodle soup with mussels and squid",
+  "aliases": [
+   "champong",
+   "jjambbong",
+   "spicy seafood noodle soup"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708352,
+    180
+   ],
+   [
+    2707132,
+    300
+   ],
+   [
+    2706333,
+    30
+   ],
+   [
+    2706363,
+    20
+   ],
+   [
+    2706350,
+    20
+   ],
+   [
+    2709889,
+    30
+   ],
+   [
+    2710093,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "haemul_pajeon",
+  "name": "Haemul pajeon",
+  "desc": "large golden savory pancake with green onions and seafood",
+  "aliases": [
+   "pajeon",
+   "seafood pancake",
+   "korean pancake",
+   "jeon"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708342,
+    80
+   ],
+   [
+    2709794,
+    50
+   ],
+   [
+    2706333,
+    30
+   ],
+   [
+    2706363,
+    20
+   ],
+   [
+    2707153,
+    20
+   ],
+   [
+    2707442,
+    8
+   ]
+  ]
+ },
+ {
+  "id": "hotteok",
+  "name": "Hotteok",
+  "desc": "pan-fried sweet pancake oozing brown sugar syrup",
+  "aliases": [
+   "hoddeok",
+   "korean sweet pancake"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707666,
+    70
+   ],
+   [
+    2710260,
+    15
+   ],
+   [
+    2707515,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "bingsu",
+  "name": "Bingsu",
+  "desc": "mountain of milky shaved snow ice with red beans and toppings",
+  "aliases": [
+   "patbingsu",
+   "bingsoo",
+   "korean shaved ice",
+   "mango bingsu",
+   "kakigori",
+   "shaved ice"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705385,
+    120
+   ],
+   [
+    2705402,
+    25
+   ],
+   [
+    2710309,
+    40
+   ],
+   [
+    2708345,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "korean_corn_dog",
+  "name": "Korean corn dog",
+  "desc": "battered hot dog on a stick crusted with fries and sugar",
+  "aliases": [
+   "gamja hotdog",
+   "rice dog",
+   "mozzarella corn dog",
+   "k-dog"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707044,
+    100
+   ],
+   [
+    2710258,
+    5
+   ],
+   [
+    2709733,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "kongnamul_muchim",
+  "name": "Kongnamul muchim",
+  "desc": "seasoned soybean sprouts with sesame and scallions",
+  "aliases": [
+   "kongnamul",
+   "bean sprout banchan",
+   "soybean sprout salad"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709871,
+    100
+   ],
+   [
+    2710190,
+    3
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "sigeumchi_namul",
+  "name": "Sigeumchi namul",
+  "desc": "seasoned blanched spinach with sesame seeds",
+  "aliases": [
+   "spinach namul",
+   "korean spinach side dish",
+   "sigeumchi muchim"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709615,
+    100
+   ],
+   [
+    2710190,
+    4
+   ],
+   [
+    2707442,
+    4
+   ],
+   [
+    2707586,
+    2
+   ]
+  ]
+ },
+ {
+  "id": "kkakdugi",
+  "name": "Kkakdugi",
+  "desc": "cubed radish kimchi in red pepper seasoning",
+  "aliases": [
+   "radish kimchi",
+   "kakdugi",
+   "cubed radish kimchi"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709803,
+    60
+   ],
+   [
+    2710077,
+    40
+   ]
+  ]
+ },
+ {
+  "id": "gyeran_jjim",
+  "name": "Gyeran jjim",
+  "desc": "fluffy puffed steamed egg in a black earthenware pot",
+  "aliases": [
+   "korean steamed egg",
+   "gyeranjjim",
+   "egg jjim"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707152,
+    100
+   ],
+   [
+    2707132,
+    60
+   ],
+   [
+    2709794,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "gamja_jorim",
+  "name": "Gamja jorim",
+  "desc": "glossy soy-braised potato cubes sprinkled with sesame",
+  "aliases": [
+   "braised potatoes",
+   "potato banchan",
+   "gamja jorim"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2709388,
+    100
+   ],
+   [
+    2707442,
+    12
+   ],
+   [
+    2710274,
+    10
+   ],
+   [
+    2707586,
+    2
+   ]
+  ]
+ },
+ {
+  "id": "eomuk_bokkeum",
+  "name": "Eomuk bokkeum",
+  "desc": "stir-fried strips of fish cake with onions and sesame",
+  "aliases": [
+   "odeng bokkeum",
+   "fish cake side dish",
+   "eomuk"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706550,
+    100
+   ],
+   [
+    2707442,
+    6
+   ],
+   [
+    2710258,
+    4
+   ],
+   [
+    2709950,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "myeolchi_bokkeum",
+  "name": "Myeolchi bokkeum",
+  "desc": "tiny stir-fried dried anchovies glazed with sesame",
+  "aliases": [
+   "stir-fried anchovies",
+   "myulchi bokkeum"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706232,
+    40
+   ],
+   [
+    2710274,
+    10
+   ],
+   [
+    2707442,
+    3
+   ],
+   [
+    2707515,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "dakgalbi",
+  "name": "Dakgalbi",
+  "desc": "spicy red chicken stir-fry with cabbage and rice cakes in pan",
+  "aliases": [
+   "dak galbi",
+   "spicy stir-fried chicken",
+   "chuncheon dakgalbi"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706044,
+    150
+   ],
+   [
+    2709889,
+    60
+   ],
+   [
+    2709702,
+    40
+   ],
+   [
+    2708422,
+    30
+   ],
+   [
+    2710228,
+    15
+   ],
+   [
+    2710093,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "jeyuk_bokkeum",
+  "name": "Jeyuk bokkeum",
+  "desc": "spicy red stir-fried pork slices with onions",
+  "aliases": [
+   "jeyuk",
+   "dwaeji bulgogi",
+   "spicy pork bulgogi"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705862,
+    150
+   ],
+   [
+    2709950,
+    40
+   ],
+   [
+    2710228,
+    15
+   ],
+   [
+    2710093,
+    10
+   ],
+   [
+    2710258,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "ojingeo_bokkeum",
+  "name": "Ojingeo bokkeum",
+  "desc": "spicy red stir-fried squid with vegetables",
+  "aliases": [
+   "spicy squid stir fry",
+   "ojingeo"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706333,
+    150
+   ],
+   [
+    2709950,
+    30
+   ],
+   [
+    2709664,
+    20
+   ],
+   [
+    2710228,
+    10
+   ],
+   [
+    2710093,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "bossam",
+  "name": "Bossam",
+  "desc": "sliced boiled pork belly with napa cabbage leaves and radish kimchi",
+  "aliases": [
+   "bo ssam",
+   "boiled pork wraps"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705901,
+    120
+   ],
+   [
+    2709774,
+    50
+   ],
+   [
+    2710077,
+    30
+   ],
+   [
+    2707439,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "jokbal",
+  "name": "Jokbal",
+  "desc": "glossy dark sliced braised pig's trotters on a platter",
+  "aliases": [
+   "pig trotters",
+   "braised pig feet",
+   "jok bal"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705898,
+    150
+   ],
+   [
+    2707442,
+    10
+   ],
+   [
+    2710258,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "sundae",
+  "name": "Sundae",
+  "desc": "sliced Korean blood sausage stuffed with glass noodles",
+  "aliases": [
+   "soondae",
+   "korean blood sausage"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706173,
+    100
+   ],
+   [
+    2708355,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "ganjang_gejang",
+  "name": "Ganjang gejang",
+  "desc": "raw crab marinated in soy sauce, shell full of orange roe",
+  "aliases": [
+   "soy marinated crab",
+   "gejang",
+   "ganjang gejang"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706344,
+    150
+   ],
+   [
+    2707442,
+    30
+   ],
+   [
+    2710258,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "tteokguk",
+  "name": "Tteokguk",
+  "desc": "oval rice cake slices in clear beef broth with egg strips",
+  "aliases": [
+   "rice cake soup",
+   "ddeokguk",
+   "tteok guk"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708422,
+    120
+   ],
+   [
+    2710115,
+    300
+   ],
+   [
+    2707153,
+    20
+   ],
+   [
+    2705822,
+    30
+   ],
+   [
+    2709988,
+    1
+   ]
+  ]
+ },
+ {
+  "id": "miyeokguk",
+  "name": "Miyeokguk",
+  "desc": "dark green seaweed soup with beef in clear broth",
+  "aliases": [
+   "seaweed soup",
+   "birthday soup",
+   "miyeok guk"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2710110,
+    100
+   ]
+  ]
+ },
+ {
+  "id": "lu_rou_fan",
+  "name": "Lu rou fan",
+  "desc": "white rice topped with dark soy-braised minced pork belly",
+  "aliases": [
+   "braised pork rice",
+   "lu rou fan",
+   "loh bah png",
+   "minced pork rice"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708408,
+    200
+   ],
+   [
+    2705901,
+    60
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2710258,
+    5
+   ],
+   [
+    2707154,
+    25
+   ]
+  ]
+ },
+ {
+  "id": "gua_bao",
+  "name": "Gua bao",
+  "desc": "folded steamed bun with braised pork belly, peanuts and cilantro",
+  "aliases": [
+   "gua bao",
+   "pork belly bao",
+   "taiwanese hamburger",
+   "kong bak pau"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708725,
+    60
+   ],
+   [
+    2705901,
+    50
+   ],
+   [
+    2707515,
+    5
+   ],
+   [
+    2707442,
+    5
+   ],
+   [
+    2710075,
+    10
+   ]
+  ]
+ },
+ {
+  "id": "stinky_tofu",
+  "name": "Stinky tofu",
+  "desc": "deep-fried tofu cubes with pickled cabbage and chili sauce",
+  "aliases": [
+   "chou doufu",
+   "stinky bean curd"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707448,
+    120
+   ],
+   [
+    2710075,
+    40
+   ],
+   [
+    2707442,
+    5
+   ],
+   [
+    2710093,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "oyster_omelette",
+  "name": "Oyster omelette",
+  "desc": "gooey omelette with oysters and greens in sweet red sauce",
+  "aliases": [
+   "o-a-chian",
+   "oh chien",
+   "oyster pancake",
+   "orh jian"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706351,
+    50
+   ],
+   [
+    2707153,
+    60
+   ],
+   [
+    2709887,
+    30
+   ],
+   [
+    2710296,
+    15
+   ]
+  ]
+ },
+ {
+  "id": "taiwanese_popcorn_chicken",
+  "name": "Taiwanese popcorn chicken",
+  "desc": "bite-size fried chicken pieces with fried basil and pepper salt",
+  "aliases": [
+   "yan su ji",
+   "salt and pepper chicken",
+   "taiwanese fried chicken"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706052,
+    100
+   ],
+   [
+    2709780,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "ji_pai",
+  "name": "Taiwanese fried chicken cutlet",
+  "desc": "huge flattened crispy fried chicken cutlet in a paper bag",
+  "aliases": [
+   "ji pai",
+   "xxl chicken cutlet",
+   "da ji pai",
+   "hot star chicken"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705973,
+    150
+   ]
+  ]
+ },
+ {
+  "id": "pineapple_cake",
+  "name": "Pineapple cake",
+  "desc": "small golden rectangular pastry with pineapple jam filling",
+  "aliases": [
+   "feng li su",
+   "pineapple shortcake",
+   "taiwanese pineapple cake"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2707970,
+    50
+   ],
+   [
+    2710299,
+    50
+   ]
+  ]
+ },
+ {
+  "id": "three_cup_chicken",
+  "name": "Three cup chicken",
+  "desc": "dark glossy braised chicken pieces with basil in a clay pot",
+  "aliases": [
+   "san bei ji",
+   "sanbeiji",
+   "3 cup chicken"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2706037,
+    150
+   ],
+   [
+    2707442,
+    15
+   ],
+   [
+    2710190,
+    10
+   ],
+   [
+    2710691,
+    15
+   ],
+   [
+    2710258,
+    5
+   ],
+   [
+    2709780,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "oyster_vermicelli",
+  "name": "Oyster vermicelli",
+  "desc": "thick brown noodle soup with oysters and cilantro",
+  "aliases": [
+   "oa mi sua",
+   "oyster mee sua",
+   "oyster misua"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708352,
+    120
+   ],
+   [
+    2706351,
+    30
+   ],
+   [
+    2707132,
+    250
+   ],
+   [
+    2707442,
+    5
+   ],
+   [
+    2709351,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "khuushuur",
+  "name": "Khuushuur",
+  "desc": "flat half-moon deep-fried pastries filled with mutton",
+  "aliases": [
+   "huushuur",
+   "khuushur",
+   "mongolian fried meat pie",
+   "buuz"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708705,
+    80
+   ],
+   [
+    2705907,
+    40
+   ]
+  ]
+ },
+ {
+  "id": "tsuivan",
+  "name": "Tsuivan",
+  "desc": "fried flat noodle strips with mutton, carrots and cabbage",
+  "aliases": [
+   "tsuiwan",
+   "mongolian fried noodles"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2708352,
+    200
+   ],
+   [
+    2705905,
+    60
+   ],
+   [
+    2709664,
+    30
+   ],
+   [
+    2709889,
+    30
+   ],
+   [
+    2709950,
+    20
+   ],
+   [
+    2707442,
+    5
+   ]
+  ]
+ },
+ {
+  "id": "khorkhog",
+  "name": "Khorkhog",
+  "desc": "mutton chunks with potatoes and carrots cooked with hot stones",
+  "aliases": [
+   "horhog",
+   "mongolian barbecue"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705905,
+    200
+   ],
+   [
+    2709388,
+    80
+   ],
+   [
+    2709664,
+    40
+   ],
+   [
+    2709950,
+    20
+   ]
+  ]
+ },
+ {
+  "id": "guriltai_shul",
+  "name": "Guriltai shul",
+  "desc": "mutton noodle soup with hand-cut noodles and vegetables",
+  "aliases": [
+   "mongolian noodle soup",
+   "mutton noodle soup"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2705905,
+    60
+   ],
+   [
+    2708352,
+    100
+   ],
+   [
+    2707132,
+    300
+   ],
+   [
+    2709664,
+    20
+   ],
+   [
+    2709388,
+    30
+   ]
+  ]
+ },
+ {
+  "id": "suutei_tsai",
+  "name": "Suutei tsai",
+  "desc": "pale milky tea in a bowl",
+  "aliases": [
+   "mongolian milk tea",
+   "salty milk tea"
+  ],
+  "food101": null,
+  "fndds": [
+   [
+    2710488,
+    150
+   ],
+   [
+    2705385,
+    100
+   ],
+   [
+    2707132,
+    50
+   ]
+  ]
+ }
+]

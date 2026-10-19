@@ -116,6 +116,11 @@ main { max-width: 960px; margin: 0 auto; padding: 0 16px 96px; }
 .chip.skip { color: var(--muted); }
 .dish.skipped .view { filter: grayscale(1) opacity(.5); }
 .dish .notes { font-size: .8rem; color: var(--muted); margin: 6px 0 0; }
+.dish .notes p { margin: 0 0 4px; }
+.dish-search { margin: 8px 0 4px; }
+.dish-search .search { width: 100%; box-sizing: border-box; font: inherit; font-size: .9rem; padding: 8px 10px;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); }
+.dish-search .guesses:empty { display: none; }
 .tastes { display: grid; gap: 4px; margin-top: 8px; }
 .taste { display: grid; grid-template-columns: 56px 1fr 30px; align-items: center; gap: 8px; font-size: .82rem; }
 .taste input { width: 100%; accent-color: var(--accent); }

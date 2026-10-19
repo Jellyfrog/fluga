@@ -1,7 +1,7 @@
 // Taste profile -> firing rates of the four gustatory channels, and the eat/decline decision.
 
 import type { Rates } from '../sim/gpu-sim';
-import type { Taste } from './tastes';
+import type { Taste } from './dishes';
 
 export const MAX_RATE_HZ = 150; // the range the reference model was tested at
 export const TRIALS = 30;
