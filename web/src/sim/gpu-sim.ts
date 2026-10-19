@@ -3,7 +3,7 @@
 import type { Brain, Channel } from './brain';
 import { CHANNELS } from './brain';
 import * as M from './model';
-import { initWGSL, integrateWGSL, propagateWGSL, MAX_B, RING_SLOTS } from './shaders';
+import { initWGSL, integrateWGSL, propagateWGSL, MAX_B, MAX_COUNTED, MAX_SLOTS, RING_SLOTS } from './shaders';
 
 export type Rates = Record<Channel, number>; // Hz per taste channel
 
@@ -13,7 +13,14 @@ export interface TastingRequest {
   tMs: number; // simulated time per trial
   seed: number;
   plain?: boolean; // update every neuron each step instead of only active ones (validation)
+  drive?: Drive; // per-neuron Poisson input (vision mode); needs setVision first
 }
+
+/** Time-varying Poisson input to the slots of setVision: prob[frame * nSlots + slot] per 0.1 ms step. */
+export interface Drive { frameSteps: number; nSlots: number; prob: Float32Array }
+
+/** Which neurons get which drive slot, and which neurons' spikes are counted (in this order). */
+export interface VisionMap { driveNeuron: ArrayLike<number>; driveSlot: ArrayLike<number>; counted: ArrayLike<number> }
 
 /** Live progress after each chunk of steps. Raster spikes are from trial 0. */
 export interface ChunkUpdate {
@@ -32,6 +39,7 @@ export interface TastingResult {
   active: number[];
   wallMs: number;
   overflow: boolean;
+  counts: number[]; // spikes of each counted neuron (setVision), summed over trials
 }
 
 const RING_CAP = 8192;
@@ -39,6 +47,9 @@ const REC_CAP = 1 << 16;
 const RAST_CAP = 1 << 15;
 const STEPS_PER_SUBMIT = 100;
 const STEP_STRIDE = 256; // minUniformBufferOffsetAlignment
+const DRIVE_CAP = 48 * 8192; // frames x slots
+const LIST_WORDS = RING_SLOTS * RING_CAP + REC_CAP + 2 * RAST_CAP + DRIVE_CAP;
+const COUNT_BASE = 4 * MAX_B + 8; // counters word where the per-neuron counts start
 
 export class GpuBrain {
   readonly n: number;
@@ -50,6 +61,8 @@ export class GpuBrain {
   private groups!: { init: GPUBindGroup; integrate: GPUBindGroup; propagate: GPUBindGroup; step: GPUBindGroup[][] };
   private maxSteps = 0;
   private busy = false;
+  private info!: Uint32Array; // CPU copy of the graph's info words
+  private nCounted = 0;
 
   private constructor(device: GPUDevice, n: number, maxTrials: number) {
     this.device = device;
@@ -89,7 +102,7 @@ export class GpuBrain {
     const S = GPUBufferUsage.STORAGE, CD = GPUBufferUsage.COPY_DST, CS = GPUBufferUsage.COPY_SRC;
 
     // graph = rowPtr | info | post
-    const graph = d.createBuffer({ size: 4 * (2 * n + 1 + E), usage: S, mappedAtCreation: true });
+    const graph = d.createBuffer({ size: 4 * (2 * n + 1 + E), usage: S | CD, mappedAtCreation: true });
     const g = new Uint32Array(graph.getMappedRange());
     g.set(brain.rowPtr, 0);
     const info = g.subarray(n + 1, 2 * n + 1);
@@ -97,14 +110,15 @@ export class GpuBrain {
     for (const i of brain.groups.mn9.indices) info[i] |= 1 << 4;
     for (const i of brain.groups.dnp01.indices) info[i] |= 2 << 4;
     g.set(brain.post, 2 * n + 1);
+    this.info = info.slice();
     graph.unmap();
 
     const weights = d.createBuffer({ size: 4 * Math.ceil(E / 2), usage: S, mappedAtCreation: true });
     new Int16Array(weights.getMappedRange()).set(brain.weight);
     weights.unmap();
 
-    const listWords = RING_SLOTS * RING_CAP + REC_CAP + 2 * RAST_CAP;
-    const counterWords = 4 * MAX_B + 4;
+    const listWords = LIST_WORDS;
+    const counterWords = COUNT_BASE + MAX_COUNTED;
     this.bufs = {
       params: d.createBuffer({ size: 80 + 16 * MAX_B, usage: GPUBufferUsage.UNIFORM | CD }),
       steps: d.createBuffer({ size: 0, usage: GPUBufferUsage.UNIFORM | CD }), // sized in ensureSteps
@@ -113,7 +127,7 @@ export class GpuBrain {
       active: d.createBuffer({ size: 4 * (n * B + Math.ceil((n * B) / 32)), usage: S | CD }),
       graph,
       weights,
-      lists: d.createBuffer({ size: 4 * listWords, usage: S | CS }),
+      lists: d.createBuffer({ size: 4 * listWords, usage: S | CS | CD }), // CD: the vision drive is written here
       counters: d.createBuffer({ size: 4 * counterWords, usage: S | CD | CS }),
       ringArgs: d.createBuffer({ size: 4 * 3 * RING_SLOTS, usage: S | GPUBufferUsage.INDIRECT | CD }),
       k1Args: d.createBuffer({ size: 16, usage: S | GPUBufferUsage.INDIRECT | CD }),
@@ -143,6 +157,22 @@ export class GpuBrain {
     };
   }
 
+  /** Marks driven and counted neurons in the info words (vision mode). Replaces any earlier map. */
+  setVision(map: VisionMap) {
+    const n = this.n, info = this.info.map((w) => w & 0x3f);
+    if (map.driveNeuron.length !== map.driveSlot.length) throw new Error('setVision: driveNeuron/driveSlot lengths differ');
+    if (map.counted.length > MAX_COUNTED) throw new Error(`setVision: at most ${MAX_COUNTED} counted neurons`);
+    for (let k = 0; k < map.driveNeuron.length; k++) {
+      const i = map.driveNeuron[k], slot = map.driveSlot[k];
+      if (i < 0 || i >= n || slot < 0 || slot >= MAX_SLOTS) throw new Error('setVision: drive index out of range');
+      info[i] = (info[i] & ~(0x1fff << 6)) | ((slot + 1) << 6);
+    }
+    for (let k = 0; k < map.counted.length; k++) info[map.counted[k]] = (info[map.counted[k]] & ~(0xfff << 19)) | ((k + 1) << 19);
+    this.info = info;
+    this.nCounted = map.counted.length;
+    this.device.queue.writeBuffer(this.bufs.graph, 4 * (n + 1), info);
+  }
+
   /** One 16-byte uniform slot per step index, with a bind group per step and kernel. */
   private ensureSteps(nSteps: number) {
     if (nSteps <= this.maxSteps) return;
@@ -168,6 +198,16 @@ export class GpuBrain {
     u.set([this.n, req.trials, req.seed >>> 0, req.plain ? 1 : 0, RING_CAP, REC_CAP, RAST_CAP, M.REFRACTORY_STEPS]);
     f.set([M.V0, M.V_RST, M.V_TH, M.A_V, M.A_G, M.C_G, M.W_SYN, M.KICK], 8);
     u[16] = 0; // raster trial
+    if (req.drive) {
+      const { frameSteps, nSlots, prob } = req.drive;
+      const nSteps = Math.round(req.tMs / M.DT_MS);
+      if (nSlots < 1 || nSlots > MAX_SLOTS || frameSteps < 1) throw new Error('drive: bad nSlots or frameSteps');
+      if (prob.length < Math.ceil(nSteps / frameSteps) * nSlots) throw new Error('drive: prob does not cover the trial');
+      if (prob.length > DRIVE_CAP) throw new Error(`drive: at most ${DRIVE_CAP} frame x slot values`);
+      if (prob.some((x) => !(x >= 0 && x <= 1))) throw new Error('drive: probabilities must be in [0, 1]');
+      u.set([1, frameSteps, nSlots], 17);
+      this.device.queue.writeBuffer(this.bufs.lists, 4 * (RING_SLOTS * RING_CAP + REC_CAP + 2 * RAST_CAP), prob);
+    }
     CHANNELS.forEach((ch, c) => {
       const p = req.rates[ch] * M.DT_MS * 1e-3;
       if (p < 0 || p > 1) throw new Error(`${ch}: rate ${req.rates[ch]} Hz out of range`);
@@ -283,6 +323,7 @@ export class GpuBrain {
       nSteps, mn9Steps, dnp01Steps, spikes: slice(1), active: slice(0),
       wallMs: performance.now() - t0,
       overflow: counters[4 * MAX_B + 2] !== 0 || counters[4 * MAX_B] > REC_CAP,
+      counts: Array.from(counters.subarray(COUNT_BASE, COUNT_BASE + this.nCounted)),
     };
   }
 

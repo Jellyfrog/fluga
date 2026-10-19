@@ -52,7 +52,10 @@ export function oneLiner(name: string, t: Taste, o: DishOutcome, isWinner: boole
     return `Chose the ${dish}: sweet enough to extend the proboscis ${o.ate} times out of ${o.trials}.`;
   }
   if (o.ate === 0) {
-    if (t.sweet < 0.25 && t.watery < 0.6) return `Ignored the ${dish}: nothing sweet reached the sugar neurons.`;
+    if (t.sweet < 0.25 && t.watery < 0.6) {
+      const salt = t.salty >= 0.4 ? ', and the salt neurons pushed it further away' : '';
+      return `Ignored the ${dish}: no sugar for the sugar neurons${salt}. This fly eats for sugar; hunger won't change that.`;
+    }
     if (t.bitter >= 0.3 && t.bitter >= t.salty) return `Refused the ${dish}: bitterness overruled everything.`;
     if (t.salty >= 0.4) return `Refused the ${dish}: the salt neurons shut the proboscis.`;
     return `Refused the ${dish}: not enough to cross MN9's threshold.`;

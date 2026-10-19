@@ -1,4 +1,4 @@
-// FlyPick app: wake the fly, add dishes, watch it taste, read the verdict.
+// Fluga app: wake the fly, add dishes, watch it taste, read the verdict.
 
 import { FlyEye, flyEyeSupported, FLY_EYE_LEGEND } from './flyeye/flyeye';
 import { startBrain, isRecorded, type BrainService } from './sim/service';
@@ -9,6 +9,7 @@ import {
   MIN_ATE, TRIALS, TRIAL_MS, oneLiner, rank, tasteToRates, type DishOutcome, type Mood,
 } from './taste/encoder';
 import { Raster } from './ui/raster';
+import { initLook } from './vision/look';
 import { renderShareCard, shareOrDownload } from './ui/share';
 
 const MAX_DISHES = 8;
@@ -58,11 +59,11 @@ const state = {
 };
 
 // ---------- navigation ----------
-type Screen = 'wake' | 'dishes' | 'tasting' | 'verdict';
+type Screen = 'wake' | 'dishes' | 'tasting' | 'verdict' | 'look';
 function go(screen: Screen) {
   if (screen !== 'wake' && !state.service) screen = 'wake';
   if (state.tasting && screen !== 'tasting') return;
-  for (const s of ['wake', 'dishes', 'tasting', 'verdict'] as Screen[]) $(`screen-${s}`).hidden = s !== screen;
+  for (const s of ['wake', 'dishes', 'tasting', 'verdict', 'look'] as Screen[]) $(`screen-${s}`).hidden = s !== screen;
   if (screen === 'dishes') ensureClassifier();
   window.scrollTo({ top: 0 });
 }
@@ -430,3 +431,6 @@ $('share-btn').addEventListener('click', async () => {
 
 // ---------- about ----------
 $('about-open').addEventListener('click', () => $<HTMLDialogElement>('about').showModal());
+
+// ---------- vision mode ----------
+initLook(() => state.service);

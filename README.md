@@ -1,4 +1,4 @@
-# FlyPick
+# Fluga
 
 A joke web app with a real core: upload photos of dishes, and a simulated fruit fly brain — the
 full FlyWire v783 connectome, 138,639 neurons and 15.1 million connections — tastes each one in
@@ -63,6 +63,21 @@ Measured (`eval_vocab.py`, mean absolute taste error over the 4 channels, lower 
 | 800 Food-101 validation photos | 0.058 (top-1 56%, top-5 79%) | 0.033 (the old model was trained on this set) |
 
 The 4-bit image model (27 MB) costs about 2 points of top-1 against 8-bit (42 MB) or full precision.
+
+## Vision mode ("Show it a picture", experimental)
+
+`prep/build_vision.py` writes `web/public/brain/vision.json` from FlyWire Codex's column assignment and
+the Schlegel et al. annotations (downloads and sources in `data/vision_research.md`): 1,581 eye columns with
+approximate viewing directions, ~31,000 medulla/lobula-plate columnar neurons to drive (ON: Mi1, Mi4, Tm3,
+T4; OFF: Tm1, Tm2, Tm4, Tm9, Mi9, T5; either: T2, T2a, T3, Tm20, Tm21), 1,425 LC/LPLC visual projection
+neurons with receptive-field centres derived from their columnar inputs, and DNs with published behaviour
+links. In the browser (`web/src/vision/`), a picture approaches or passes by; brightness changes per column
+and 10 ms frame become Poisson rates (up to 60 Hz) on those neurons. Photoreceptors and lamina are not
+driven: their synapses are under-detected in FlyWire and their signs are wrong in the model, so input
+does not get through. Nothing about vision was validated in this model; the page says so.
+
+`prep/vision_check.py` runs a fixed synthetic stimulus on the float64 reference simulator, and
+`validate.html?vision=1` runs it on WebGPU for comparison.
 
 ## Run
 

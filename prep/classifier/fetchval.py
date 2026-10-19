@@ -4,7 +4,7 @@ out = sys.argv[1]; random.seed(0)
 import time
 def get(u):
     for k in range(8):
-        try: return urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'FlyPickDev/0.1'}), timeout=60).read()
+        try: return urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'FlugaDev/0.1'}), timeout=60).read()
         except urllib.error.HTTPError as e:
             if e.code != 429: raise
             time.sleep(5 * (k + 1))

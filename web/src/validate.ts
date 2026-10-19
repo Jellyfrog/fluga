@@ -14,8 +14,50 @@ interface Out {
 const log = (s: string) => { document.getElementById('log')!.textContent += s + '\n'; console.log(s); };
 declare global { interface Window { __results?: { done: boolean; error?: string; results: Out[]; adapter?: string } } }
 
+/** vision=1: the synthetic stimulus of prep/vision_check.py, GPU vs float64 reference, per neuron group. */
+async function vision(q: URLSearchParams, state: NonNullable<Window['__results']>) {
+  const trials = Number(q.get('trials') ?? 24);
+  const brain = await loadBrain();
+  const ref = await (await fetch(`${import.meta.env.BASE_URL}brain/vision_reference.json`)).json();
+  const v = await (await fetch(`${import.meta.env.BASE_URL}brain/vision.json`)).json();
+  const sim = await GpuBrain.create(brain, trials);
+  const d = v.drive;
+  const groups = Object.entries(ref.groups as Record<string, number[]>);
+  sim.setVision({
+    driveNeuron: [...d.on, ...d.off, ...d.both],
+    driveSlot: [...d.onCol.map((c: number) => 3 * c), ...d.offCol.map((c: number) => 3 * c + 1), ...d.bothCol.map((c: number) => 3 * c + 2)],
+    counted: groups.flatMap(([, idx]) => idx),
+  });
+  const frames = Math.ceil(ref.t_ms / 0.1 / ref.frame_steps);
+  const prob = new Float32Array(frames * ref.n_slots);
+  ref.prob_sparse.frame.forEach((f: number, k: number) => { prob[f * ref.n_slots + ref.prob_sparse.slot[k]] = ref.prob_sparse.p[k]; });
+  const modes = (q.get('mode') ?? 'active') === 'both' ? ['active', 'plain'] as const : [q.get('mode') as 'active' | 'plain' ?? 'active'];
+  for (const mode of modes) {
+    const r = await sim.run({ rates: { sugar: 0, bitter: 0, salt: 0, water: 0 }, trials, tMs: ref.t_ms, seed: 99, plain: mode === 'plain',
+      drive: { frameSteps: ref.frame_steps, nSlots: ref.n_slots, prob } });
+    let at = 0;
+    const per: Record<string, number> = {};
+    for (const [g, idx] of groups) { per[g] = r.counts.slice(at, at + idx.length).reduce((a, b) => a + b, 0) / trials; at += idx.length; }
+    per.total = r.spikes.reduce((a, b) => a + b, 0) / trials;
+    for (const [g, m] of Object.entries(per)) {
+      const rs = ref.spikes[g];
+      const se = Math.sqrt(rs.sd ** 2 / ref.trials + rs.sd ** 2 / trials) || 1;
+      const z = (m - rs.mean) / se;
+      log(`${mode} ${g.padEnd(12)} GPU ${m.toFixed(2).padStart(9)}  ref ${rs.mean.toFixed(2).padStart(9)} ± ${rs.sd.toFixed(2)}  z ${z.toFixed(2)}`);
+      state.results.push({ name: g, mode, gpu: m, ref: rs.mean, z } as unknown as Out);
+    }
+    log(`${mode}: ${Math.round(r.wallMs)} ms for ${trials} trials${r.overflow ? '  OVERFLOW' : ''}`);
+  }
+  state.done = true;
+  log('done');
+}
+
 async function main() {
   const q = new URLSearchParams(location.search);
+  if (q.get('vision')) {
+    window.__results = { done: false, results: [] };
+    return vision(q, window.__results);
+  }
   const trials = Number(q.get('trials') ?? 30);
   const modes = (q.get('mode') ?? 'both') === 'both' ? ['plain', 'active'] as const : [q.get('mode') as 'plain' | 'active'];
   const only = q.get('conds')?.replaceAll(' ', '+').split(','); // '+' in names arrives as a space

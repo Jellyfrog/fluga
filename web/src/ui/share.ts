@@ -36,7 +36,7 @@ export async function renderShareCard(s: ShareInput): Promise<Blob> {
   let y = photoH + 96;
   g.fillStyle = '#d9480f';
   g.font = '600 30px ui-monospace, Menlo, monospace';
-  g.fillText('FLYPICK · A REAL FLY CONNECTOME DECIDED', pad, y);
+  g.fillText('FLUGA · A REAL FLY CONNECTOME DECIDED', pad, y);
   y += 84;
   g.fillStyle = '#1d1b16';
   g.font = '800 76px system-ui, sans-serif';
@@ -77,7 +77,7 @@ function wrap(g: CanvasRenderingContext2D, text: string, x: number, y: number, m
 
 /** Native share sheet with the image where supported, otherwise a download. */
 export async function shareOrDownload(blob: Blob, text: string) {
-  const file = new File([blob], 'flypick.png', { type: 'image/png' });
+  const file = new File([blob], 'fluga.png', { type: 'image/png' });
   if (navigator.canShare?.({ files: [file] })) {
     try {
       await navigator.share({ files: [file], text });
@@ -88,7 +88,7 @@ export async function shareOrDownload(blob: Blob, text: string) {
   }
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'flypick.png';
+  a.download = 'fluga.png';
   a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 10_000);
 }

@@ -1,9 +1,10 @@
 // Web Worker that owns the WebGPU brain so the UI stays smooth.
 
 import { loadBrain } from './brain';
-import { GpuBrain, type TastingRequest } from './gpu-sim';
+import { GpuBrain, type TastingRequest, type VisionMap } from './gpu-sim';
 
-export type ToWorker = { type: 'init'; maxTrials: number; brainBase: string } | { type: 'run'; id: number; req: TastingRequest };
+export type ToWorker = { type: 'init'; maxTrials: number; brainBase: string } | { type: 'run'; id: number; req: TastingRequest }
+  | { type: 'vision'; map: VisionMap };
 export type FromWorker =
   | { type: 'nogpu'; reason: string }
   | { type: 'progress'; frac: number }
@@ -27,6 +28,8 @@ self.onmessage = async (e: MessageEvent<ToWorker>) => {
     } catch (err) {
       post({ type: 'error', message: String((err as Error)?.message ?? err) });
     }
+  } else if (m.type === 'vision') {
+    sim?.setVision(m.map); // queued on the GPU ahead of any later run
   } else if (m.type === 'run') {
     try {
       const result = await sim!.run(m.req, (update) => post({ type: 'chunk', id: m.id, update }));

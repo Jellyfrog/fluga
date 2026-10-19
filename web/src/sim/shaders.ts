@@ -13,15 +13,20 @@
 //   neurons  {v, g, last}                     per k
 //   pending  atomic<i32> synapse counts       per k
 //   active   [B*N active lists | B*N/32 flag words]   neurons that have left exact rest, per trial
-//   graph    [rowPtr (N+1) | info (N) | post (E)]      info = channel mask (bits 0-3) | watch (4-5)
+//   graph    [rowPtr (N+1) | info (N) | post (E)]
+//            info = channel mask (bits 0-3) | watch (4-5) | drive slot + 1 (6-18) | count index + 1 (19-30)
 //   weights  Int16 pairs packed in u32
-//   lists    [ring 20 x RING_CAP | record REC_CAP | raster 2 x RAST_CAP]
-//   counters [activeCount B | spikes B | mn9 B | dnp01 B | (at 4*MAX_B) recCount | rastCount | overflow]
+//   lists    [ring 20 x RING_CAP | record REC_CAP | raster 2 x RAST_CAP | drive DRIVE_CAP]
+//            drive = Poisson probability per step, frame-major (frame * nSlots + slot), as f32 bits
+//   counters [activeCount B | spikes B | mn9 B | dnp01 B | (at 4*MAX_B) recCount | rastCount | overflow
+//            | (at 4*MAX_B + 8) spike count per count index, summed over trials]
 //   ringArgs 20 x (x, 1, 1) indirect dispatch args: spikes per ring slot
 //   k1Args   (x, B, 1) indirect args of integrate in active mode
 
 export const MAX_B = 64;
 export const RING_SLOTS = 20;
+export const MAX_SLOTS = 8191; // 13 info bits
+export const MAX_COUNTED = 4095;
 
 const common = /* wgsl */ `
 struct Params {
@@ -29,7 +34,7 @@ struct Params {
   ringCap: u32, recCap: u32, rastCap: u32, refrSteps: u32,
   v0: f32, vrst: f32, vth: f32, av: f32,
   ag: f32, cg: f32, wsyn: f32, kick: f32,
-  rasterTrial: u32, _p0: u32, _p1: u32, _p2: u32,
+  rasterTrial: u32, drive: u32, frameSteps: u32, nSlots: u32,  // drive: 1 = per-neuron input on
   prob: array<vec4f, ${MAX_B}>,   // Poisson probability per step: sugar, bitter, salt, water
 }
 struct Step { s: u32 }
@@ -38,11 +43,15 @@ struct Neuron { v: f32, g: f32, last: i32 }
 @group(0) @binding(0) var<uniform> P: Params;
 @group(1) @binding(0) var<uniform> S: Step;
 
-// Neurons of a channel driven at rate > 0 are Poisson sources with no refractory period.
+fn driveSlot(info: u32) -> u32 { return (info >> 6u) & 0x1FFFu; }  // 0 = not driven, else slot + 1
+fn countIndex(info: u32) -> u32 { return (info >> 19u) & 0xFFFu; } // 0 = not counted, else index + 1
+
+// Neurons of a channel driven at rate > 0, and per-neuron driven neurons while the drive is on, are
+// Poisson sources with no refractory period (the model's 'poi' neurons), even in frames at rate 0.
 fn stimulated(info: u32, p: vec4f) -> bool {
   let on = vec4u(select(vec4u(0u), vec4u(1u), p > vec4f(0.0)));
   let m = vec4u(info & 1u, (info >> 1u) & 1u, (info >> 2u) & 1u, (info >> 3u) & 1u);
-  return dot(on, m) > 0u;
+  return dot(on, m) > 0u || (P.drive == 1u && driveSlot(info) != 0u);
 }
 fn refractory(info: u32, p: vec4f) -> i32 {
   return select(i32(P.refrSteps), 0, stimulated(info, p));
@@ -53,7 +62,7 @@ const counters = /* wgsl */ `
 const C_SPIKES = 1u;  // offsets in units of B
 const C_MN9 = 2u;
 const C_DN = 3u;
-fn cGlobal(i: u32) -> u32 { return 4u * ${MAX_B}u + i; }  // 0 = recCount, 1 = rastCount, 2 = overflow
+fn cGlobal(i: u32) -> u32 { return 4u * ${MAX_B}u + i; }  // 0 = recCount, 1 = rastCount, 2 = overflow, 8+ = counts
 `;
 
 export const integrateWGSL = common + counters + /* wgsl */ `
@@ -108,6 +117,11 @@ fn integrate(@builtin(global_invocation_id) gid: vec3u) {
       for (var c = 0u; c < 4u; c++) {
         if (((info >> c) & 1u) == 1u && rand(trial, i, s - 1u, c) < p[c]) { nr.v += P.kick; }
       }
+      let slot = driveSlot(info);
+      if (P.drive == 1u && slot != 0u) {
+        let at = ${RING_SLOTS}u * P.ringCap + P.recCap + 2u * P.rastCap + ((s - 1u) / P.frameSteps) * P.nSlots + slot - 1u;
+        if (rand(trial, i, s - 1u, 4u) < bitcast<f32>(lists[at])) { nr.v += P.kick; }
+      }
     }
   }
 
@@ -126,6 +140,8 @@ fn integrate(@builtin(global_invocation_id) gid: vec3u) {
         atomicStore(&counters[cGlobal(2u)], 1u);
       }
       atomicAdd(&counters[C_SPIKES * P.b + trial], 1u);
+      let ci = countIndex(info);
+      if (ci != 0u) { atomicAdd(&counters[cGlobal(7u + ci)], 1u); }
       let watch = (info >> 4u) & 3u;
       if (watch != 0u) {
         atomicAdd(&counters[select(C_DN, C_MN9, watch == 1u) * P.b + trial], 1u);

@@ -2,13 +2,15 @@
 // the main thread (browsers without WebGPU in workers), and the recorded table (no WebGPU at all).
 
 import { CHANNELS, brainBaseUrl, loadBrain } from './brain';
-import { GpuBrain, type ChunkUpdate, type Rates, type TastingRequest, type TastingResult } from './gpu-sim';
+import { GpuBrain, type ChunkUpdate, type Rates, type TastingRequest, type TastingResult, type VisionMap } from './gpu-sim';
 import type { FromWorker, ToWorker } from './worker';
 
 export interface BrainService {
   kind: 'live' | 'recorded';
   where: string; // "worker", "main thread" or "recorded table"
   taste(req: TastingRequest, onChunk?: (u: ChunkUpdate) => void): Promise<TastingResult | RecordedResult>;
+  /** Live brains only: mark the neurons a picture drives and the ones read out (vision mode). */
+  setVision?(map: VisionMap): void;
 }
 
 export interface RecordedResult { recorded: true; ate: number; trials: number; mn9Hz: number; fled: number }
@@ -29,6 +31,7 @@ class WorkerService implements BrainService {
       else { this.calls.delete(m.id!); call.reject(new Error(m.message)); }
     });
   }
+  setVision(map: VisionMap) { this.worker.postMessage({ type: 'vision', map } satisfies ToWorker); }
   taste(req: TastingRequest, onChunk?: (u: ChunkUpdate) => void) {
     const id = this.next++;
     return new Promise<TastingResult>((resolve, reject) => {
@@ -42,6 +45,7 @@ class MainThreadService implements BrainService {
   kind = 'live' as const;
   where = 'main thread';
   constructor(private sim: GpuBrain) {}
+  setVision(map: VisionMap) { this.sim.setVision(map); }
   taste(req: TastingRequest, onChunk?: (u: ChunkUpdate) => void) { return this.sim.run(req, onChunk); }
 }
 

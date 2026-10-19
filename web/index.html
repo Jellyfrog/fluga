@@ -6,13 +6,13 @@
   <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#16150f" media="(prefers-color-scheme: dark)">
   <meta name="description" content="A simulated fruit fly brain, the full FlyWire connectome, tastes your dishes in the browser and picks the one it would eat.">
-  <title>FlyPick</title>
+  <title>Fluga</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪰</text></svg>">
   <link rel="stylesheet" href="/src/ui/styles.css">
 </head>
 <body>
   <header class="top">
-    <button class="brand" data-go="wake" aria-label="FlyPick home">Fly<span>Pick</span></button>
+    <button class="brand" data-go="wake" aria-label="Fluga home">Flu<span>ga</span></button>
     <span id="brain-badge" class="badge" hidden></span>
     <button class="link" id="about-open">About</button>
   </header>
@@ -36,7 +36,10 @@
         </div>
         <div id="wake-ready" hidden>
           <p class="ready-line" id="wake-note">The fly is awake.</p>
-          <button class="primary big" data-go="dishes">Add dishes →</button>
+          <div class="mode-row">
+            <button class="primary big" data-go="dishes">Feed it dishes →</button>
+            <button class="secondary big" data-go="look" id="look-go">Show it a picture →</button>
+          </div>
         </div>
         <p class="error" id="wake-error" hidden></p>
       </div>
@@ -64,7 +67,7 @@
           <label><input type="radio" name="mood" value="peckish" checked><span>Peckish</span></label>
           <label><input type="radio" name="mood" value="starving"><span>Starving</span></label>
         </fieldset>
-        <p class="fine">Hunger scales how strongly sugar neurons fire (×0.6, ×1, ×1.4). Change it any time and taste again.</p>
+        <p class="fine">Hunger scales how strongly sugar neurons fire (×0.6, ×1, ×1.4). This fly eats for sugar: hunger makes sweet things more tempting, but won't make it eat chicken. Change it any time and taste again.</p>
       </div>
       <div class="dishes" id="dishes"></div>
       <div class="sticky-cta">
@@ -100,6 +103,28 @@
       <ol class="tasted" id="tasted"></ol>
     </section>
 
+    <!-- Vision mode: show the fly a picture -->
+    <section class="screen" id="screen-look" hidden>
+      <div class="section-head">
+        <p class="eyebrow">Experimental · vision is not validated in this model</p>
+        <h2>What would a fly do?</h2>
+        <p class="fine">Show it a picture. The picture moves in front of the fly; each change in brightness drives the eye columns that see it, and the connectome carries that to the fly's visual feature detectors and the neurons that command its body.</p>
+      </div>
+      <div class="add-row">
+        <label class="primary file-btn"><input type="file" id="look-file" accept="image/*">Choose picture</label>
+        <fieldset class="motion" id="look-motion">
+          <label><input type="radio" name="motion" value="approach" checked><span>It approaches</span></label>
+          <label><input type="radio" name="motion" value="pass"><span>It passes by</span></label>
+        </fieldset>
+      </div>
+      <div class="card look-card">
+        <canvas id="look-field" aria-label="The fly's visual field with the picture and where its visual projection neurons fired"></canvas>
+        <p class="fine" id="look-status">The fly's view: about 180° around its head. Choose a picture.</p>
+        <button class="primary big" id="look-btn" disabled>Show the fly</button>
+      </div>
+      <div class="card look-result" id="look-result" hidden></div>
+    </section>
+
     <!-- 4. Verdict -->
     <section class="screen" id="screen-verdict" hidden>
       <div class="verdict-hero" id="verdict-hero"></div>
@@ -119,6 +144,7 @@
     <p><strong>The wiring is real.</strong> The brain is the FlyWire connectome (v783): 138,639 neurons of an adult female <em>Drosophila</em> and 15,091,983 connections, each weighted by its synapse count, excitatory or inhibitory.</p>
     <p><strong>The model is published.</strong> Neurons follow the leaky integrate-and-fire model of Shiu et al. (<em>Nature</em>, 2024), with their parameters, run here on your GPU with WebGPU in 0.1 ms steps. Every verdict is computed live; nothing is scripted.</p>
     <p><strong>The split of work.</strong> A food recognizer matches each photo against about 1,400 dishes; each dish's taste profile (sweet, bitter, salty, watery) is computed from USDA nutrient data: sugars, sodium, water, caffeine and theobromine per 100 g, plus the share of bitter ingredients such as arugula or grapefruit. The fly only ever receives taste: sugar, bitter, water and Ir94e (salt) taste neurons fire at up to 150 Hz. It "eats" when MN9, the proboscis motor neuron, fires 4 spikes within 50 ms. Preferences like bitterness vetoing sugar come from the connectome.</p>
+    <p><strong>"Show it a picture" (experimental).</strong> The picture moves in front of the fly; its change in brightness, computed per eye column outside the connectome, drives about 31,000 medulla and lobula-plate neurons, and the connectome carries that to visual projection neurons and descending "command" neurons. Their links to behaviour (escape, steering, walking) come from experiments on real flies and were not validated in this model.</p>
     <p><strong>What is not modeled:</strong> smell, learning, neuromodulation, hunger hormones, the body. The fly-eye view is decoration and never affects the pick. This is a joke app with a real core, not a fly's mind.</p>
     <h3>Credits</h3>
     <ul class="credits">
@@ -126,6 +152,7 @@
       <li><a href="https://github.com/philshiu/Drosophila_brain_model" target="_blank" rel="noopener">Drosophila_brain_model</a> (MIT license): Shiu et al., "A Drosophila computational brain model reveals sensorimotor processing", <em>Nature</em> 2024.</li>
       <li>Eat rule and v783 neuron IDs cross-checked with <a href="https://github.com/ediskandarov/flight-or-bite" target="_blank" rel="noopener">flight-or-bite</a>.</li>
       <li>Dish recognizer: <a href="https://huggingface.co/wkcn/TinyCLIP-ViT-39M-16-Text-19M-YFCC15M" target="_blank" rel="noopener">TinyCLIP ViT-39M/16</a> (Wu et al., ICCV 2023; MIT license), zero-shot against the dish list, 4-bit weights, run on-device with ONNX Runtime Web.</li>
+      <li>Vision mode: eye-column map and cell types from FlyWire Codex (Matsliah et al., <em>Nature</em> 2024, column assignment; Schlegel et al., <em>Nature</em> 2024, annotations; Codex DOI 10.13140/RG.2.2.35928.67844). FlyWire data are released under CC BY-NC 4.0.</li>
       <li>Taste data: <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noopener">USDA FoodData Central</a>, Food and Nutrient Database for Dietary Studies (FNDDS 2021–2023), public domain.</li>
     </ul>
     <p class="fine" id="about-tech"></p>

@@ -30,7 +30,7 @@ for r in rows:
 def dl(p):
     row, i, u = p
     try:
-        data = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'FlyPickDev/0.1'}), timeout=60).read()
+        data = urllib.request.urlopen(urllib.request.Request(u, headers={'User-Agent': 'FlugaDev/0.1'}), timeout=60).read()
         open(os.path.join(out, f'{row}__{i}.jpg'), 'wb').write(data)
         return 1
     except Exception:
