@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16150f" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="A simulated fruit fly brain, the full FlyWire connectome, tastes your dishes in the browser and picks the one it would eat.">
+  <title>FlyPick</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪰</text></svg>">
+  <link rel="stylesheet" href="/src/ui/styles.css">
+</head>
+<body>
+  <header class="top">
+    <button class="brand" data-go="wake" aria-label="FlyPick home">Fly<span>Pick</span></button>
+    <span id="brain-badge" class="badge" hidden></span>
+    <button class="link" id="about-open">About</button>
+  </header>
+
+  <main>
+    <!-- 1. Wake the fly -->
+    <section class="screen" id="screen-wake">
+      <div class="hero">
+        <p class="eyebrow">138,639 neurons · 15.1 million connections</p>
+        <h1>Let a fruit fly<br>pick your dinner.</h1>
+        <p class="lede">Upload photos of dishes. A simulated fly brain, wired exactly like the real one, tastes each in your browser and eats the one it likes.</p>
+      </div>
+      <div class="card wake-card">
+        <div id="wake-idle">
+          <button class="primary big" id="wake-btn">Wake the fly</button>
+          <p class="fine">Downloads the brain once (about 47 MB) and keeps it on this device. Photos never leave your phone.</p>
+        </div>
+        <div id="wake-loading" hidden>
+          <div class="progress"><div class="bar" id="wake-bar"></div></div>
+          <p class="mono" id="wake-count">0 of 138,639 neurons</p>
+        </div>
+        <div id="wake-ready" hidden>
+          <p class="ready-line" id="wake-note">The fly is awake.</p>
+          <fieldset class="mood">
+            <legend>How hungry is it?</legend>
+            <label><input type="radio" name="mood" value="full"><span>Full</span></label>
+            <label><input type="radio" name="mood" value="peckish" checked><span>Peckish</span></label>
+            <label><input type="radio" name="mood" value="starving"><span>Starving</span></label>
+          </fieldset>
+          <p class="fine">Hunger scales how strongly sugar neurons fire (×0.6, ×1, ×1.4).</p>
+          <button class="primary big" data-go="dishes">Add dishes →</button>
+        </div>
+        <p class="error" id="wake-error" hidden></p>
+      </div>
+    </section>
+
+    <!-- 2. Add dishes -->
+    <section class="screen" id="screen-dishes" hidden>
+      <div class="section-head">
+        <h2>The menu</h2>
+        <p class="fine" id="dish-hint">Add up to 8 dishes, one photo each. Check what the recognizer thinks each dish tastes like; the fly only ever gets the taste.</p>
+      </div>
+      <div class="add-row">
+        <label class="primary file-btn">
+          <input type="file" id="file-camera" accept="image/*" capture="environment">Take photo
+        </label>
+        <label class="secondary file-btn">
+          <input type="file" id="file-upload" accept="image/*" multiple>Upload photos
+        </label>
+        <span class="fine" id="classifier-status"></span>
+      </div>
+      <div class="dishes" id="dishes"></div>
+      <div class="sticky-cta">
+        <button class="primary big" id="taste-btn" disabled>Let the fly taste</button>
+      </div>
+    </section>
+
+    <!-- 3. Tasting -->
+    <section class="screen" id="screen-tasting" hidden>
+      <div class="section-head">
+        <p class="eyebrow" id="tasting-step">Tasting 1 of 1</p>
+        <h2 id="tasting-name">…</h2>
+      </div>
+      <div class="card tasting">
+        <div class="tasting-top">
+          <canvas id="tasting-thumb" class="thumb"></canvas>
+          <div class="stats">
+            <div><span class="num" id="stat-firing">0</span><span class="lbl">neurons firing</span></div>
+            <div><span class="num" id="stat-touched">0</span><span class="lbl">neurons reached</span></div>
+            <div><span class="num" id="stat-time">0</span><span class="lbl">ms of fly time</span></div>
+          </div>
+        </div>
+        <div class="raster-wrap">
+          <canvas id="raster" aria-label="Spike raster of the busiest neurons"></canvas>
+          <p class="fine raster-cap">Spikes of the busiest neurons in one tasting. Bottom row: MN9, the motor neuron that extends the proboscis.</p>
+        </div>
+        <div class="meter-row">
+          <span class="lbl">MN9 · proboscis</span>
+          <div class="meter"><div class="fill" id="mn9-fill"></div><div class="tick" title="eat threshold"></div></div>
+          <span class="mono" id="mn9-hz">0 Hz</span>
+        </div>
+      </div>
+      <ol class="tasted" id="tasted"></ol>
+    </section>
+
+    <!-- 4. Verdict -->
+    <section class="screen" id="screen-verdict" hidden>
+      <div class="verdict-hero" id="verdict-hero"></div>
+      <ol class="ranking" id="ranking"></ol>
+      <div class="actions">
+        <button class="primary" id="share-btn">Share card</button>
+        <button class="secondary" data-go="dishes">Change the menu</button>
+        <button class="secondary" id="again-btn">Taste again</button>
+      </div>
+      <p class="fine" id="verdict-foot"></p>
+    </section>
+  </main>
+
+  <dialog id="about">
+    <form method="dialog"><button class="close" aria-label="Close">×</button></form>
+    <h2>What is real here</h2>
+    <p><strong>The wiring is real.</strong> The brain is the FlyWire connectome (v783): 138,639 neurons of an adult female <em>Drosophila</em> and 15,091,983 connections, each weighted by its synapse count, excitatory or inhibitory.</p>
+    <p><strong>The model is published.</strong> Neurons follow the leaky integrate-and-fire model of Shiu et al. (<em>Nature</em>, 2024), with their parameters, run here on your GPU with WebGPU in 0.1 ms steps. Every verdict is computed live; nothing is scripted.</p>
+    <p><strong>The split of work.</strong> A food recognizer turns each photo into a taste profile (sweet, bitter, salty, watery) from a hand-written table. The fly only ever receives taste: sugar, bitter, water and Ir94e (salt) taste neurons fire at up to 150 Hz. It "eats" when MN9, the proboscis motor neuron, fires 4 spikes within 50 ms. Preferences like bitterness vetoing sugar come from the connectome.</p>
+    <p><strong>What is not modeled:</strong> smell, learning, neuromodulation, hunger hormones, the body. The fly-eye view is decoration and never affects the pick. This is a joke app with a real core, not a fly's mind.</p>
+    <h3>Credits</h3>
+    <ul class="credits">
+      <li><a href="https://flywire.ai" target="_blank" rel="noopener">FlyWire</a> connectome: Dorkenwald et al. and Schlegel et al., <em>Nature</em> 2024.</li>
+      <li><a href="https://github.com/philshiu/Drosophila_brain_model" target="_blank" rel="noopener">Drosophila_brain_model</a> (MIT license): Shiu et al., "A Drosophila computational brain model reveals sensorimotor processing", <em>Nature</em> 2024.</li>
+      <li>Eat rule and v783 neuron IDs cross-checked with <a href="https://github.com/ediskandarov/flight-or-bite" target="_blank" rel="noopener">flight-or-bite</a>.</li>
+      <li>Dish recognizer: MobileNetV2 fine-tuned on Food-101 (weights from <a href="https://huggingface.co/AlexKoff88/mobilenet_v2_food101" target="_blank" rel="noopener">AlexKoff88/mobilenet_v2_food101</a>, re-exported and int8-quantized), run on-device with ONNX Runtime Web.</li>
+    </ul>
+    <p class="fine" id="about-tech"></p>
+  </dialog>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

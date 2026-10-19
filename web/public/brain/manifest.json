@@ -1,0 +1,27 @@
+{
+ "version": 783,
+ "neurons": 138639,
+ "edges": 15091983,
+ "hash": "d82d6a08b27a3958",
+ "weightRange": [
+  -2405,
+  1897
+ ],
+ "inhibitoryFraction": 0.3997,
+ "maxOutDegree": 9783,
+ "meanOutDegree": 108.9,
+ "files": {
+  "rowptr.bin": {
+   "raw": 554560,
+   "gzip": 284950
+  },
+  "post.bin": {
+   "raw": 60367932,
+   "gzip": 39050722
+  },
+  "weight.bin": {
+   "raw": 30183966,
+   "gzip": 7714257
+  }
+ }
+}

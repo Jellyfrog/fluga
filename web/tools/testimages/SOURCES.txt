@@ -1,0 +1,9 @@
+Test photos from Wikimedia Commons (960px thumbnails), used for classifier tests.
+pizza.jpg         File:Eq it-na pizza-margherita sep2005 sml.jpg  Valerio Capello, CC BY-SA 3.0
+sushi.jpg         File:Sushi platter.jpg                          chidorian from Japan, CC BY-SA 2.0
+donuts.jpg        File:Doughnut.jpg                               Angeldm, CC BY-SA 3.0
+caesar_salad.jpg  File:Caesar-salad.jpg                           Telluride, CC BY-SA 3.0
+ramen.jpg         File:A bowl of ramen in Osaka, Japan.jpg        Joli Rumi, CC BY-SA 4.0
+steak.jpg         File:Steak dinner in France.jpg                 Ɱ, CC BY-SA 4.0
+tiramisu.jpg      File:Dessert Tiramisu.jpg                       Javier Lastras, CC BY 2.0
+miso_soup.jpg     File:Miso Soup bowl on a table with a spoon.jpg TechnoKittyCat, CC BY-SA 3.0

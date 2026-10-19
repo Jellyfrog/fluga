@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Classifier test</title>
+<!-- Dev-only check: `npx vite` then open /tools/classifier-test.html. Classifies tools/testimages/*. -->
+<pre id="out">loading…</pre>
+<script type="module">
+  import * as ort from 'onnxruntime-web/webgpu';
+  import { loadClassifier, classify } from '/src/taste/classifier.ts';
+  import { tasteFor } from '/src/taste/tastes.ts';
+  const names = ['pizza', 'sushi', 'donuts', 'caesar_salad', 'ramen', 'steak', 'tiramisu', 'miso_soup'];
+  const out = document.getElementById('out');
+  const t0 = performance.now();
+  await loadClassifier((f) => { out.textContent = `model ${Math.round(f * 100)}%`; });
+  const results = { ep: ort.env.webgpu.device ? 'webgpu' : 'wasm', loadMs: Math.round(performance.now() - t0), images: {} };
+  for (const n of names) {
+    const img = new Image();
+    img.src = `/tools/testimages/${n}.jpg`;
+    await img.decode();
+    const t = performance.now();
+    const { top } = await classify(img);
+    results.images[n] = { ms: Math.round(performance.now() - t), top3: top.slice(0, 3).map((g) => `${g.name} ${g.score.toFixed(2)}`), taste: tasteFor(top[0].label) };
+  }
+  out.textContent = JSON.stringify(results, null, 1);
+  window.results = results;
+</script>

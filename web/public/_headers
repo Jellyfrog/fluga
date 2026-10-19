@@ -1,0 +1,8 @@
+# Cloudflare Pages: brain data is versioned by hash in manifest.json and cached in Cache Storage.
+/brain/*.gz
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: application/octet-stream
+/brain/*.json
+  Cache-Control: no-cache
+/models/*
+  Cache-Control: public, max-age=604800
