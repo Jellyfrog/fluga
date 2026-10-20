@@ -22,9 +22,14 @@ export function initLook(getService: () => BrainService | null) {
   const motion = () => (document.querySelector<HTMLInputElement>('input[name=motion]:checked')?.value ?? 'approach') as Motion;
   const status = (s: string) => { $('look-status').textContent = s; };
 
-  const redraw = (outcome?: VisionOutcome) => drawField($('look-field') as HTMLCanvasElement, photo, motion(), vision?.v, outcome);
+  let shown: VisionOutcome | undefined; // the result on screen, kept across redraws (resize, rotation)
+  const redraw = () => drawField($('look-field') as HTMLCanvasElement, photo, motion(), vision?.v, shown);
   window.addEventListener('resize', () => redraw());
-  document.querySelectorAll<HTMLInputElement>('input[name=motion]').forEach((r) => r.addEventListener('change', () => redraw()));
+  document.querySelectorAll<HTMLInputElement>('input[name=motion]').forEach((r) => r.addEventListener('change', () => {
+    shown = undefined; // the dots belong to the other motion
+    $('look-result').hidden = true;
+    redraw();
+  }));
   redraw();
 
   $<HTMLInputElement>('look-file').addEventListener('change', async (e) => {
@@ -38,6 +43,7 @@ export function initLook(getService: () => BrainService | null) {
       return;
     }
     $('look-result').hidden = true;
+    shown = undefined;
     redraw();
     const svc = getService();
     const live = svc && svc.kind === 'live';
@@ -61,7 +67,8 @@ export function initLook(getService: () => BrainService | null) {
       (u) => status(`Showing it… ${Math.round((u.step / u.nSteps) * T_MS)} of ${T_MS} ms, ${TRIALS} runs side by side`));
       if (isRecorded(r)) throw new Error('recorded brain');
       const outcome = readOut(vision.v, vision.map, r.counts, r.dnp01Steps, drive);
-      redraw(outcome);
+      shown = outcome;
+      redraw();
       status(`Dots: visual projection neurons that fired, at the centre of what each one sees (${TRIALS} runs).`);
       renderResult(outcome, vision.v);
     } catch (err) {

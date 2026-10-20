@@ -24,7 +24,14 @@ await page.click(`input[value=${motion}] + span`);
 await page.waitForFunction(() => !document.querySelector('#look-btn').disabled, null, { timeout: 60_000 });
 await page.screenshot({ path: `${outDir}/1-look.png`, fullPage: true });
 await page.click('#look-btn');
-await page.waitForSelector('#look-result:not([hidden])', { timeout: 1_500_000 });
+// Print progress, and fail fast if the page reports an error instead of a result.
+for (;;) {
+  const done = await page.waitForSelector('#look-result:not([hidden])', { timeout: 30_000 }).then(() => true, () => false);
+  const st = await page.textContent('#look-status');
+  if (done) break;
+  console.log(`[${Math.round((Date.now() - t0) / 1000)} s] ${st}`);
+  if (/could not/i.test(st)) { console.error('FAIL:', st); process.exit(1); }
+}
 console.log('result after', Date.now() - t0, 'ms:', await page.textContent('#look-result .big-line'));
 console.log(await page.$$eval('#look-result .lc-list li', (els) => els.map((e) => e.textContent)));
 console.log(await page.$$eval('.dn-table tr.on', (els) => els.map((e) => e.innerText.replace(/\t/g, ' | '))));
